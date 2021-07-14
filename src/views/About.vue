@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <section class="app-about">about us</section>
 </template>
+
+<script>
+export default {
+  name: "about",
+  components: {},
+  props: {},
+  created() {},
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+};
+</script>
