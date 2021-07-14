@@ -1,5 +1,5 @@
 <template>
-  <section class="app-header">
+  <section class="app-header main-layout">
     <nav>
       <router-link to="/">furrFriends</router-link> |
       <router-link to="/about">about</router-link>

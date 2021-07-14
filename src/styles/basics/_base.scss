@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+html {    
+    color: $clr2;
+    line-height: 1.6;
+}
+body {
+    margin: 0;
+    background-color: $clr1;   
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;    
+    font-weight: 400;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

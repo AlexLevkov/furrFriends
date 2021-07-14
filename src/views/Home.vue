@@ -1,5 +1,7 @@
 <template>
-  <section class="app-home">HOME SWEET HOME</section>
+  <section class="app-home main-layout">
+    <h2>HOME SWEET HOME</h2>
+  </section>
 </template>
 
 <script>
