@@ -5,7 +5,7 @@ export const petStore = {
   state: {
     pets: [],
     filterBy: {
-      text: ''
+      ownerId: 'all',
     }
   },
   mutations: {
@@ -25,7 +25,7 @@ export const petStore = {
       }
     },
     setFilterBy(state, payload) {
-      state.filterBy = payload.newFilter
+      state.filterBy = payload.filterCopy
     },
 
   },
@@ -58,34 +58,35 @@ export const petStore = {
   },
 
   getters: {
-    petsToShow(state, payload) {
-      // const searchStr = state.filterBy.text
-      // return state.pets.filter((pet) => pet.nickname.toLowerCase().includes(searchStr))
-      return state.pets
+    petsToShow({ pets, filterBy }) {
+
+      // let petsToShow = (filterBy.ownerId === 'all') ? (pets) : (pets.filter(pet => {pet.owner._id === filterBy.ownerId}))
+
+      let petsToShow = []
+      if (filterBy.ownerId === 'all') {
+        petsToShow = pets
+      } else {
+        petsToShow = pets.filter(pet => pet.owner._id === filterBy.ownerId)
+      }      
+      return petsToShow
     },
-    filterBy(state) {
-      return state.fitlerBy
-    },
-    pukiPets({pets}){
+
+    pukiPets({ pets }) {
       return pets.filter(pet => pet.owner._id === 'e4k9i')
     },
-    mukiPets({pets}){
+    mukiPets({ pets }) {
       return pets.filter(pet => pet.owner._id === 'zk9NY')
     },
-    otherPets({pets}){
+    otherPets({ pets }) {
       return pets.filter(pet => pet.owner._id !== 'zk9NY' && pet.owner._id !== 'e4k9i')
     },
-   
+    filterBy({ filterBy }) {
+      return filterBy
+    }
+
   },
   modules: {
   }
 }
 
 
-// todosToshow(state) {
-//   const searchStr = state.filterBy.text.toLowerCase()
-//   const searchType = state.filterBy.type
-//   return state.todos.filter(todo => {
-//     return todo.name.toLowerCase().includes(searchStr) && searchType === '' ? true : todo.isClicked === !searchType
-//   })
-// },

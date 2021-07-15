@@ -2,8 +2,8 @@
   <section class="app-header main-layout">
     <div class="header-container">
       <nav>
-        <router-link to="/">home</router-link> |
-        <router-link to="/pet">furrFriends</router-link> |
+        <router-link to="/">home</router-link> 
+        <router-link to="/pet">furrFriends</router-link> 
         <router-link to="/about">about</router-link>
       </nav>
 
