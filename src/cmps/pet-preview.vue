@@ -2,8 +2,9 @@
   <section class="pet-preview">
     PETS PREVIEW
     <article class="pet-preview-card">
-      {{ pet.nickname }}
-      <button @click="petDetails">X</button>
+      {{ pet.name }}
+      {{ pet._id }}
+      <button @click="petDetails">pet details btn</button>
     </article>
   </section>
 </template>
@@ -24,7 +25,8 @@ export default {
   computed: {},
   methods: {
     petDetails() {
-      this.$router.push(`./pet/details/${this.pet._id}`);
+      console.log("pet details");
+      this.$router.push(`./pet/${this.pet._id}`);
     },
   },
 };

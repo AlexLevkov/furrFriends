@@ -1,14 +1,19 @@
 <template>
-  <section class="pet-details">PET DETAILS</section>
+  <section class="pet-details">
+    PET DETAILS
+    {{ pet }}
+    <button @click="adoptPet">adopt</button>
+  </section>
 </template>
 
 <script>
+import { petService } from "../service/pet.service.js";
 export default {
   name: "pet-details",
   components: {},
   props: {},
   created() {
-    this.createPet();
+    this.getPet();
   },
   data() {
     return {
@@ -16,16 +21,25 @@ export default {
     };
   },
   computed: {
-    toyId() {
+    petId() {
       return this.$route.params.petId;
     },
   },
   methods: {
-    async createPet() {
-      let petId = this.petId;
-      let pet = await this.$store.dispatch({ type: "getpet", petId });
-      this.pet = pet;
+    async getPet() {
+      try {
+        let petId = this.petId;
+        let pet = await petService.getById(petId);
+        this.pet = pet;
+      } catch {
+        console.log(err);
+      }
+    },
+    adoptPet() {
+      alert("welcome to the family");
     },
   },
 };
 </script>
+
+

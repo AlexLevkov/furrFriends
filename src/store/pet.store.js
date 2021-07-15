@@ -25,18 +25,14 @@ export const petStore = {
       }
     },
     setFilterBy(state, payload) {
-      console.log('payload.newFilter', payload.newFilter);
       state.filterBy = payload.newFilter
-      console.log('state.filterBy.text', state.filterBy.text);
-
-    }
+    },
 
   },
   actions: {
     loadPets(context) {
       return petService.query()
         .then(pets => {
-          console.log('pets store', pets);
           context.commit({ type: 'setPets', pets })
           return pets;
         })
@@ -46,19 +42,15 @@ export const petStore = {
         })
     },
     removePet({ commit }, payload) {
-      console.log('commit', commit);
-      console.log('payload', payload);
       return petService.remove(payload.petId)
         .then(() => {
           commit(payload)
         })
     },
     savePet({ commit }, payload) {
-      console.log('payload', payload);
       return petService.save(payload.pet)
         .then((savedPet) => {
           commit({ type: 'savePet', pet: savedPet })
-          console.log('savedPet', savedPet);
           return savedPet
         })
     },
@@ -69,14 +61,10 @@ export const petStore = {
     petsToShow(state, payload) {
       // const searchStr = state.filterBy.text
       // return state.pets.filter((pet) => pet.nickname.toLowerCase().includes(searchStr))
-      console.log('getters');
-      console.log('state.pets', state.pets);
       return state.pets
     },
     filterBy(state) {
       return state.fitlerBy
-
-
     }
   },
   modules: {

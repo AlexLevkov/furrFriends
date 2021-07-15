@@ -12,16 +12,19 @@ function query() {
 
     // const pets = storageService.get(`pet`).then(console.log)
     // console.log('pets in storage:', pets);
-    return storageService.get(`pet`)
+    return storageService.query(`pet`)
 }
 
 function remove(id) {
     return storageService.delete(`pet/${id}`).then(res => res.data)
 }
 
-function getById(id) {
-    return storageService.get(`pet/${id}`)
+function getById(petId) {
+    console.log('petId', petId);
+    // return storageService.get(`pet/${id}`)
+    return storageService.get('pet', petId)
 }
+
 
 function save(pet) {
     const petToSave = JSON.parse(JSON.stringify(pet))
@@ -42,5 +45,18 @@ function getEmptyPet() {
     }
 }
 
+_craeteTestData()
 
-
+function _craeteTestData() {
+    const pets = [
+        {
+            name: 'muki',
+            _id: '101'
+        },
+        {
+            name: 'shuki',
+            _id: '102'
+        },
+    ]
+    localStorage.setItem('pet', JSON.stringify(pets));
+}
