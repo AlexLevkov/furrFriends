@@ -1,0 +1,32 @@
+// header
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+    background-color: $clr3;
+    align-items: center;
+    margin-bottom: 5px;
+
+    nav {
+        height: 100%;
+
+        a {
+            display: inline-block;
+            height: 100%;
+            
+            text-align: center;
+            line-height: 7vh;
+            
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-left: 10px;
+
+            &:hover{               
+                box-shadow: inset 0px -5px 0px 0px $clr2;
+            }
+        }
+        
+        
+
+    }
+}

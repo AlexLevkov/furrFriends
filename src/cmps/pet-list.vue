@@ -5,6 +5,7 @@
         <pet-preview :pet="pet"></pet-preview>
       </li>
     </ul>
+    <button v-if="isHomepage" @click="goToOwnersPets">See more</button>
   </section>
 </template>
 
@@ -19,12 +20,24 @@ export default {
     pets: {
       type: Array,
     },
+    isHomepage:{
+      type: Boolean,
+      default: false,
+    }
   },
   created() {},
   data() {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    goToOwnersPets(){
+     const filterCopy = {
+        ownerId: this.pets[0].owner._id
+      }
+      this.$store.commit({ type: "setFilterBy", filterCopy });
+      this.$router.push('/pet')
+    }
+  },
 };
 </script>

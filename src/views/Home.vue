@@ -1,11 +1,10 @@
 <template>
-  <section class="app-home main-layout">
-    <h2>HOME SWEET HOME</h2>
+  <section class="app-home main-layout">    
     <img src="../assets/images/hero.jpg" />
     <!-- <pet-app></pet-app> -->
-    <pet-list :pets="pukiPets"></pet-list>
-    <pet-list :pets="mukiPets"></pet-list>
-    <pet-list :pets="otherPets"></pet-list>
+    <pet-list :pets="pukiPets" :isHomepage="true"></pet-list>
+    <pet-list :pets="mukiPets" :isHomepage="true"></pet-list>
+    <pet-list :pets="otherPets" :isHomepage="true"></pet-list>
   </section>
 </template>
 
