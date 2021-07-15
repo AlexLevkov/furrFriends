@@ -6,11 +6,13 @@ export const userService = {
     getUsers,
     remove,
     signup,
-    update
+    update,
+    getLoggedinUser,
+    logout
 
 }
 
-function getUsers() {
+function getUsers() {   
     return storageService.query('user')
 }
 
@@ -31,10 +33,17 @@ async function login(userCred) {
     const user = users.find(user => user.username === userCred.username)
     return _saveLocalUser(user)
 }
+async function logout() {
+    sessionStorage.clear()
+}
 
 async function signup(userCred) {
     const user = await storageService.post('user', userCred)
     return _saveLocalUser(user)
+}
+
+function getLoggedinUser() {
+    return JSON.parse(sessionStorage.getItem('loggedinUser') || 'null')
 }
 
 function _saveLocalUser(user) {

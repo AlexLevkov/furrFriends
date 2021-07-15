@@ -1,0 +1,35 @@
+
+.user-modal{
+    height: 100vh;
+    background-color:rgba(76, 175, 80, 0.3);
+    position: fixed;
+
+}
+.user-main{
+    text-align: center;
+    width: 100%;
+}
+.user-form-container{
+    background-color: orange;
+    width: 50%;
+    height: 40%;
+    margin: 20% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 8px;
+    
+}
+.signup-form, .login-form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    input{
+        display: block;
+        margin-bottom: 5px;
+    }
+    select{
+        margin-bottom: 5px;
+    }
+}
