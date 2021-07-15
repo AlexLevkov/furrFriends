@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <app-header />
     <router-view />
+    <pet></pet>
   </div>
 </template>
 
@@ -9,11 +10,15 @@
 
 
 <script>
-"app";
 import appHeader from "./cmps/app-header.vue";
+import pet from "./views/pet.vue";
 export default {
   components: {
     appHeader,
+    pet,
+  },
+  created() {
+    this.$store.dispatch({ type: "loadPets" });
   },
 };
 </script>
