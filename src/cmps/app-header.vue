@@ -5,10 +5,10 @@
       <router-link to="/about">about</router-link>
     </nav>
 
-    <nav>
-      <!-- <router-link>Find a pet</router-link> -->
-      <!-- <router-link>Offer for adoption</router-link> -->
-    </nav>
+    <div class="user-login">
+      <button @click="openUserModal()">Signup</button>
+      <button @click="openUserModal()">Login</button>
+    </div>
   </section>
 </template>
 
@@ -22,6 +22,10 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    openUserModal(){
+      this.$store.commit({type:'toggleUserModal'})
+    }
+  },
 };
 </script>
