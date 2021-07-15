@@ -10,9 +10,10 @@ export const petService = {
 
 function query() {
 
-    // const pets = storageService.get(`pet`).then(console.log)
-    // console.log('pets in storage:', pets);
-    return storageService.get(`pet`)
+   return storageService.query('pet')
+        
+  
+    
 }
 
 function remove(id) {
@@ -40,6 +41,14 @@ function getEmptyPet() {
         createdAt: Date.now(),
         type: ""
     }
+}
+// _craeteTestData()
+function _craeteTestData(){
+    const pets = [
+        { name: 'muki' },
+        { name: 'shuki' },
+    ]
+    localStorage.setItem('pet', JSON.stringify(pets));
 }
 
 

@@ -12,3 +12,44 @@
 // COMPONENTS
 @import 'cmps/app-header';
 @import 'cmps/user';
+
+
+.pet-list-preview{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.pet-card{
+    height: 270px;
+    width: 200px;
+    border: solid $clr2 2px;
+    text-align: center;
+    border-radius: 7px;
+    &:hover{
+        cursor: pointer;
+    }
+    img{
+        margin-bottom: 10px;
+    }
+    button{
+        border: none;
+        background: none;
+        color: $clr2;
+        font-weight: 600;
+        font-size: 1.1em;
+        &:hover{
+            background-color: $clr4;
+            cursor: pointer;
+            color: $clr1;
+        }
+        
+    }
+}
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+    background-color: $clr3;
+    align-items: center;
+    margin-bottom: 5px;
+}

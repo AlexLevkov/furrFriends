@@ -36,7 +36,7 @@ export const petStore = {
     loadPets(context) {
       return petService.query()
         .then(pets => {
-          console.log('pets store', pets);
+          // console.log('pets store', pets);
           context.commit({ type: 'setPets', pets })
           return pets;
         })
@@ -69,8 +69,8 @@ export const petStore = {
     petsToShow(state, payload) {
       // const searchStr = state.filterBy.text
       // return state.pets.filter((pet) => pet.nickname.toLowerCase().includes(searchStr))
-      console.log('getters');
-      console.log('state.pets', state.pets);
+      // console.log('getters');
+      // console.log('state.pets', state.pets);
       return state.pets
     },
     filterBy(state) {

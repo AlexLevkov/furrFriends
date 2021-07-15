@@ -5,9 +5,12 @@
 </template>
 
 <script>
+import petApp from "../views/pet-app.vue";
 export default {
   name: "app-home",
-  components: {},
+  components: {
+    petApp,
+  },
   props: {},
   created() {},
   data() {

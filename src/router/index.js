@@ -2,7 +2,7 @@ import Vue from 'vue'
 import vueRouter from 'vue-router'
 import home from '../views/home.vue'
 import about from '../views/about.vue'
-import pet from '../views/pet.vue'
+import petApp from '../views/pet-app.vue'
 import userDetails from '../views/user.details.vue'
 
 Vue.use(vueRouter)
@@ -20,9 +20,9 @@ const routes = [
   },
   {
     path: '/pet',
-    name: 'pet',
-    component: pet
-  },
+    name: 'pet-app',
+    component: petApp
+  },  
   {
     path: '/user/:userId',
     name: 'user-details',
