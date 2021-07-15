@@ -1,7 +1,7 @@
 <template>
   <section class="pet-preview">
     PETS PREVIEW
-    <article class="pet-preview-card">
+    <article class="pet-card">
       {{ pet.name }}
       {{ pet._id }}
       <button @click="petDetails">pet details btn</button>

@@ -9,9 +9,6 @@ export const petService = {
 }
 
 function query() {
-
-    // const pets = storageService.get(`pet`).then(console.log)
-    // console.log('pets in storage:', pets);
     return storageService.query(`pet`)
 }
 
@@ -45,7 +42,7 @@ function getEmptyPet() {
     }
 }
 
-_craeteTestData()
+// _craeteTestData()
 
 function _craeteTestData() {
     const pets = [

@@ -1,13 +1,21 @@
 <template>
   <section class="app-header main-layout">
-    <nav>
-      <router-link to="/">furrFriends</router-link> |
-      <router-link to="/about">about</router-link>
-    </nav>
+    <div class="header-container">
+      <nav>
+        <router-link to="/">furrFriends</router-link> |
+        <router-link to="/about">about</router-link>
+      </nav>
 
-    <div class="user-login">
-      <button @click="openUserModal()">Signup</button>
-      <button @click="openUserModal()">Login</button>
+      <div class="user-login" v-if="!loggedinUser">
+        <button @click="openUserModal()">Signup</button>
+        <button @click="openUserModal()">Login</button>
+      </div>
+      <div class="user-login" v-else>
+        <router-link :to="'/user/' + loggedinUser._id">{{
+          loggedinUser.fullname
+        }}</router-link>
+        <button @click="openUserModal()">Logout</button>
+      </div>
     </div>
   </section>
 </template>
@@ -21,11 +29,15 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
+  },
   methods: {
-    openUserModal(){
-      this.$store.commit({type:'toggleUserModal'})
-    }
+    openUserModal() {
+      this.$store.commit({ type: "toggleUserModal" });
+    },
   },
 };
 </script>
