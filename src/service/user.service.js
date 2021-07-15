@@ -12,7 +12,7 @@ export const userService = {
 
 }
 
-function getUsers() {   
+function getUsers() {
     return storageService.query('user')
 }
 
@@ -50,4 +50,44 @@ function _saveLocalUser(user) {
     sessionStorage.setItem('loggedinUser', JSON.stringify(user))
     return user
 }
+
+_craeteTestData()
+
+
+function _craeteTestData() {
+    const users = [
+        {
+            fullname: "alex",
+            username: "alex",
+            password: 123,
+            isAdmin: false,
+            _id: "QRR8p"
+        },
+        {
+            fullname: "sasha",
+            username: "sasha",
+            password: 123,
+            isAdmin: false,
+            _id: "2f323"
+        },
+        {
+            fullname: "puki",
+            username: "puki",
+            password: 123,
+            isAdmin: false,
+            _id: "e4k9i"
+        },
+        {
+            fullname: "muki",
+            username: "muki",
+            password: 123,
+            isAdmin: false,
+            _id: "zk9NY"
+        },
+    ]
+    localStorage.setItem('user', JSON.stringify(users));
+}
+
+
+
 
