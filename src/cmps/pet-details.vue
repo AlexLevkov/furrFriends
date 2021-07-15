@@ -1,8 +1,9 @@
 <template>
-  <section class="pet-details">
-    PET DETAILS
-    {{ pet }}
-    <button @click="adoptPet">adopt</button>
+  <section class="pet-details main-layout">
+    <div>
+      {{ pet }}
+      <button @click="adoptPet">Adopt</button>
+    </div>
   </section>
 </template>
 
@@ -24,6 +25,9 @@ export default {
     petId() {
       return this.$route.params.petId;
     },
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
   },
   methods: {
     async getPet() {
@@ -36,7 +40,11 @@ export default {
       }
     },
     adoptPet() {
-      alert("welcome to the family");
+      if (this.loggedinUser) {
+        alert("Congtraz you are a pet owner!");
+      } else {
+        this.$store.commit({ type: "toggleUserModal" });
+      }
     },
   },
 };

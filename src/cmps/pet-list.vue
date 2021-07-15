@@ -1,6 +1,5 @@
 <template>
-  <section class="pet-list">
-    PETS LIST {{ pets }}
+  <section class="pet-list">    
     <ul class="pet-preview-container">
       <li v-for="pet in pets" :key="pet._id">
         <pet-preview :pet="pet"></pet-preview>

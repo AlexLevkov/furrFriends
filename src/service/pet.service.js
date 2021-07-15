@@ -26,9 +26,9 @@ function getById(petId) {
 function save(pet) {
     const petToSave = JSON.parse(JSON.stringify(pet))
     if (petToSave._id) {
-        return storageService.put(`pet/${pet._id}`, pet)
+        return storageService.put('pet', petToSave)
     } else {
-        return storageService.post(`pet/${pet._id}`, pet)
+        return storageService.post('pet', petToSave)
     }
 }
 
@@ -48,11 +48,19 @@ function _craeteTestData() {
     const pets = [
         {
             name: 'muki',
-            _id: '101'
+            _id: '101',
+            owner:{
+                _id:'mq9YO',
+                fullname:'Alex'
+            }
         },
         {
             name: 'shuki',
-            _id: '102'
+            _id: '102',
+            owner:{
+                _id:'mq9YO',
+                fullname:'Alex'
+            }
         },
     ]
     localStorage.setItem('pet', JSON.stringify(pets));

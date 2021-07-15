@@ -1,9 +1,8 @@
 <template>
-  <section class="pet">
+  <section class="pet-app main-layout">
     <h1>PETS EXPLORE</h1>
     <pet-filter @filterBy="setFilter"></pet-filter>
-    <pet-list :pets="petsToShow"></pet-list>
-    pets to show:{{ petsToShow }}
+    <pet-list :pets="petsToShow"></pet-list>    
   </section>
 </template>
 
@@ -11,7 +10,7 @@
 import petList from "@/cmps/pet-list";
 import petFilter from "@/cmps/pet-filter";
 export default {
-  name: "pet",
+  name: "pet-app",
   components: {
     petList,
     petFilter,

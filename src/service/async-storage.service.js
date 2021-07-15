@@ -16,9 +16,7 @@ function query(entityType, delay = 200) {
     })
 }
 
-function get(entityType, entityId) {
-    console.log('entityType', entityType);
-    console.log('entityId', entityId);
+function get(entityType, entityId) {    
     return query(entityType)
         .then(entities => entities.find(entity => entity._id === entityId))
 }

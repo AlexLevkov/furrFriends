@@ -48,7 +48,7 @@ export const petStore = {
         })
     },
     savePet({ commit }, payload) {
-      return petService.save(payload.pet)
+      return petService.save(payload.petToAdd)
         .then((savedPet) => {
           commit({ type: 'savePet', pet: savedPet })
           return savedPet
@@ -65,7 +65,17 @@ export const petStore = {
     },
     filterBy(state) {
       return state.fitlerBy
-    }
+    },
+    pukiPets({pets}){
+      return pets.filter(pet => pet.owner._id === 'e4k9i')
+    },
+    mukiPets({pets}){
+      return pets.filter(pet => pet.owner._id === 'zk9NY')
+    },
+    otherPets({pets}){
+      return pets.filter(pet => pet.owner._id !== 'zk9NY' && pet.owner._id !== 'e4k9i')
+    },
+   
   },
   modules: {
   }

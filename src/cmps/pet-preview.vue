@@ -1,10 +1,9 @@
 <template>
-  <section class="pet-preview">
-    PETS PREVIEW
-    <article class="pet-card">
-      {{ pet.name }}
-      {{ pet._id }}
-      <button @click="petDetails">pet details btn</button>
+  <section class="pet-preview">    
+    <article class="pet-card" @click="showPetDetails(pet._id)">
+      <h3>{{ pet.name }}</h3>
+      <img src="../assets/images/cat-logo.gif">
+      <button @click.stop="goToUser(pet.owner._id)">Owend By: {{pet.owner.fullname}} </button>
     </article>
   </section>
 </template>
@@ -24,10 +23,12 @@ export default {
   },
   computed: {},
   methods: {
-    petDetails() {
-      console.log("pet details");
+    showPetDetails() {      
       this.$router.push(`./pet/${this.pet._id}`);
     },
+     goToUser(ownerId){
+        this.$router.push(`/user/${ownerId}`);
+    }
   },
 };
 </script>
