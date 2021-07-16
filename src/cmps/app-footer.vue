@@ -1,10 +1,12 @@
 <template>
-  <section class="app-about min-height">about us</section>
+  <section class="app-footer">
+    <footer>Coffee's Rights: Alex & Alex</footer>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "about",
+  name: "app-footer",
   components: {},
   props: {},
   created() {},

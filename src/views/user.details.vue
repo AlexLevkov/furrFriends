@@ -1,5 +1,5 @@
 <template>
-  <section class="user-details main-layout" v-if="user">
+  <section class="user-details main-layout min-height" v-if="user">
     <div>
       <h2>Hello {{ user.fullname }}</h2>
       <img src="../assets/images/user.png" />

@@ -1,13 +1,17 @@
 <template>
   <!-- <section class="pet-details main-layout"> -->
-  <section class="main-layout">
-    <div class="pet-details">
+  <section class="main-layout min-height">
+    {{ pet }}
+    <div class="pet-details-container">
       <div class="pet-bio">
         {{ pet.name }}'s bio:
         {{ pet.bio }}
+        <span>{{ pet.isSafeWithChild }}</span>
+        <button @click="adoptPet">Adopt</button>
       </div>
 
-      <div class="pet-details-grid">
+      <div class="pet-details-pic-grid">
+        <span></span>
         <article class="img-1">
           <img class="img-details" src="../assets/images/dog/dog-1.jpg" />
         </article>
@@ -19,8 +23,6 @@
         </article>
       </div>
     </div>
-
-    <button @click="adoptPet">Adopt</button>
   </section>
 </template>
 

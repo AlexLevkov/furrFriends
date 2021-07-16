@@ -1,5 +1,5 @@
 <template>
-  <section class="app-home main-layout">    
+  <section class="app-home main-layout min-height">
     <img src="../assets/images/hero.jpg" />
     <!-- <pet-app></pet-app> -->
     <pet-list :pets="pukiPets" :isHomepage="true"></pet-list>

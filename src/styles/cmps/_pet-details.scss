@@ -1,17 +1,21 @@
-.img-details {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.pet-details-container{
+  display: flex;
+  flex-direction: row;
 }
 
-.pet-details-grid {
+.pet-bio{
+  margin-top: 20px;
+  flex-basis: 30%;
+}
+
+.pet-details-pic-grid {
   flex-basis: 70%;
-    margin: 20px auto 200px;
+    margin-top: 20px;
     width: 100%;
-    height: 700px;
+    // height: 500px;
     display: grid;
     grid-template-columns: repeat(5);
-    grid-template-rows: repeat(5);
+    grid-template-rows: repeat(5,120px);
     grid-template-areas:
       'img-1 img-1 img-2 img-2 img-2'
       'img-1 img-1 img-2 img-2 img-2'
@@ -33,12 +37,10 @@
     grid-area: img-3;
   }
 
-
-  .pet-details{
-    display: flex;
-    flex-direction: row;
+  .img-details {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+ 
 
-  .pet-bio{
-    flex-basis: 30%;
-  }

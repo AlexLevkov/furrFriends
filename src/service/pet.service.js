@@ -45,11 +45,23 @@ function getEmptyPet() {
 _craeteTestData()
 
 
+
+
 function _craeteTestData() {
     const pets = [
         {
             name: 'muki',
             _id: '101',
+            type: "cat",
+            age: 1,
+            gender: "male",
+            size: "small",
+            color: "white",
+            isVaccinated: true,
+            trainedLevel: "basic",
+            isSafeWithChild: true,
+
+
             bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum ligula in facilisis hendrerit. Quisque iaculis pellentesque congue. Integer sagittis commodo eros, quis mollis nisi rhoncus sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur enim velit, laoreet vitae egestas in, pretium eget sapien. Donec quis elit vitae lacus rhoncus vulputate. Maecenas at nisl eu mi dapibus convallis. Sed non magna ac lorem ultricies vulputate. Pellentesque nibh turpis, pharetra eu consequat tempor, sodales semper nisl. Praesent et enim in nunc sollicitudin dapibus.",
             owner: {
                 _id: 'mq9YO',
