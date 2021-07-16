@@ -30,10 +30,10 @@ export const petStore = {
 
   },
   actions: {
-    loadPets(context) {
+    loadPets({ commit }) {
       return petService.query()
         .then(pets => {
-          context.commit({ type: 'setPets', pets })
+          commit({ type: 'setPets', pets })
           return pets;
         })
         .catch(err => {
@@ -67,7 +67,7 @@ export const petStore = {
         petsToShow = pets
       } else {
         petsToShow = pets.filter(pet => pet.owner._id === filterBy.ownerId)
-      }      
+      }
       return petsToShow
     },
 

@@ -1,0 +1,30 @@
+.pet-preview-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.pet-card{
+    height: 270px;
+    width: 200px;
+    border: solid $clr2 2px;
+    text-align: center;
+    border-radius: 7px;
+    &:hover{
+        cursor: pointer;        
+    }
+    img{
+        margin-bottom: 10px;
+    }
+    button{        
+        font-weight: 600;
+        font-size: 1.1em;
+        &:hover{
+            background-color: $clr4;           
+            color: $clr1;
+        }
+        
+    }
+}
+.see-more{
+    align-self: flex-end;
+}

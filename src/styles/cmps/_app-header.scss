@@ -6,27 +6,37 @@
     background-color: $clr3;
     align-items: center;
     margin-bottom: 5px;
+    color: $clr1;    
+    
+    .logo{
+        margin-right: 20px;        
+    }
 
     nav {
-        height: 100%;
-
-        a {
-            display: inline-block;
-            height: 100%;
-            
-            text-align: center;
-            line-height: 7vh;
-            
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            margin-left: 10px;
-
-            &:hover{               
-                box-shadow: inset 0px -5px 0px 0px $clr2;
-            }
-        }
-        
-        
-
+        height: 100%;         
+               
     }
+    a {
+        display: inline-block;
+        height: 100%;
+        
+        text-align: center;
+        line-height: 7vh;
+        
+        font-size: 1.5rem;       
+        margin-left: 10px;
+
+        &:hover{               
+            // box-shadow: inset 0px -5px 0px 0px $clr2;
+            // background-color: $clr4;
+        }
+    }
+    button{       
+        font-size: 1.5rem;
+        margin-right: 10px;       
+    }
+    .router-link-exact-active{
+        // color: $clr4;
+        font-weight: bolder;
+    }    
 }

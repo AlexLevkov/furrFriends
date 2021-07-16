@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-header></app-header>
     <user v-show="isUserModal" class="user-modal"></user>
+    <app-header></app-header>
     <router-view />
   </div>
 </template>
