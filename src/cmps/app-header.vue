@@ -2,9 +2,9 @@
   <section class="app-header main-layout">
     <div class="header-container">
       <nav>
-        <router-link to="/">home</router-link>
-        <router-link to="/pet">furrFriends</router-link>
-        <router-link to="/about">about</router-link>
+        <router-link class="logo" to="/">logo</router-link>
+        <router-link to="/pet">Search</router-link>
+        <router-link to="/about">About</router-link>
       </nav>
 
       <div class="user-login" v-if="!loggedinUser">

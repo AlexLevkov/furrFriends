@@ -1,7 +1,7 @@
 
 .user-modal{
     height: 100vh;
-    background-color:rgba(76, 175, 80, 0.3);
+    background-color:rgba(1, 24, 2, 0.7);
     position: fixed;
 
 }
@@ -10,7 +10,7 @@
     width: 100%;
 }
 .user-form-container{
-    background-color: orange;
+    background-color: $clr1;
     width: 50%;
     height: 40%;
     margin: 20% auto;

@@ -5,6 +5,7 @@
 html {    
     color: $clr2;
     line-height: 1.6;
+    font-family: Opensans;
 }
 body {
     margin: 0;
@@ -27,4 +28,12 @@ img {
 a {
     text-decoration: none;
     color: inherit;
+}
+button{
+    border: none;
+    background: none;
+    color: inherit;
+    &:hover{
+        cursor: pointer;
+    }
 }

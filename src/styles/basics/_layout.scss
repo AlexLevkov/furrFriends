@@ -2,8 +2,8 @@
     
     display: grid;
     grid-template-columns: 
-        minmax(2rem, 1fr)
-        minmax(auto, 1200px)
+        minmax(2rem, 1fr) 
+        minmax(auto, 1200px) 
         minmax(2rem, 1fr);
 
     > * {
