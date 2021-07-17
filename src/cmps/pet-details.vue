@@ -1,17 +1,68 @@
 <template>
   <!-- <section class="pet-details main-layout"> -->
   <section class="main-layout min-height">
-    {{ pet }}
+    <!-- {{ pet }} -->
     <div class="pet-details-container">
-      <div class="pet-bio">
-        {{ pet.name }}'s bio:
-        {{ pet.bio }}
-        <span>{{ pet.isSafeWithChild }}</span>
-        <button @click="adoptPet">Adopt</button>
+      <div class="pet-bio-contianer">
+        <div class="pet-bio">
+          {{ pet.name }}'s bio:
+          {{ pet.bio }}
+          <button class="adopt-btn pet-tag" @click="adoptPet">Adopt</button>
+        </div>
+
+        <div class="pet-properties">
+          <div class="flex-left">
+            <span
+              :class="{
+                'pet-dog pet-tag': pet.type === 'dog',
+                'pet-cat pet-tag': pet.type === 'cat',
+              }"
+            >
+              {{ pet.breed }}</span
+            >
+            <span class="pet-age pet-tag"> {{ pet.age }} yeras old</span>
+            <span class="pet-weight pet-tag"> size: {{ pet.size }}</span>
+
+            <span
+              :class="{
+                'pet-gender-male pet-tag': pet.gender === 'male',
+                'pet-gender-female pet-tag': pet.gender === 'female',
+              }"
+            >
+              {{ pet.gender }}</span
+            >
+            <span
+              :class="{ 'pet-playfull pet-tag': pet.isPlayfull }"
+              v-show="pet.isPlayfull"
+            >
+              playfull</span
+            >
+          </div>
+
+          <div class="flex-right">
+            <span
+              :class="{ 'pet-vacinated pet-tag': pet.isVaccinated }"
+              v-show="pet.isVaccinated"
+            >
+              recvied vaccines</span
+            >
+            <span class="pet-trained pet-tag">
+              training: {{ pet.trainedLevel }}</span
+            >
+
+            <span
+              :class="{ 'pet-safe pet-tag': pet.isSafeWithChild }"
+              v-show="pet.isSafeWithChild"
+            >
+              safe with children</span
+            >
+            <span class="pet-check pet-tag"> check</span>
+            <span class="pet-random pet-tag"> random</span>
+          </div>
+        </div>
       </div>
 
       <div class="pet-details-pic-grid">
-        <span></span>
         <article class="img-1">
           <img class="img-details" src="../assets/images/dog/dog-1.jpg" />
         </article>

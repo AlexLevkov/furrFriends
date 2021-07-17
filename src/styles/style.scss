@@ -40,20 +40,3 @@ ul{
     }
 }
 
-@font-face {
-    font-family: awesome ;
-    src: url(~@/styles/font-awesome/fa-brands-400.ttf);
-    src: url(~@/styles/font-awesome/fa-regular-400.ttf);
-    src: url(~@/styles/font-awesome/fa-solid-900.ttf);
-}
-
-.pet-details-grid{
-    font-family:awesome
-}
-
-.pet-details-grid span::before{
-//  content:"\f39e"
-//  content:"\f1ae"
- content:"\f1b0";
- color:lightcoral;
-}

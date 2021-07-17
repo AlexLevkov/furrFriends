@@ -1,15 +1,122 @@
+
 .pet-details-container{
   display: flex;
   flex-direction: row;
+  height: 700px;
+}
+
+// pet info - bio and properties
+
+.pet-bio-contianer{
+  flex-basis: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+  
 }
 
 .pet-bio{
   margin-top: 20px;
-  flex-basis: 30%;
+  
 }
 
+//adoption button
+
+.pet-details-container {
+    button::before{
+      font-family:awesome;
+    //  content:"\f39e"
+    //  content:"\f1ae"
+    content:"\f1b0";
+    
+    }
+  }
+
+// pet properties
+
+.pet-tag{
+  font-size: 20px;
+}
+
+.pet-properties{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  //safe with childeren:
+  .pet-safe::before{
+    font-family:awesome;
+    content:"\f77c";
+  };//playfull:
+  .pet-playfull::before{
+    font-family:awesome;
+    content:"\f434";
+  };//vaccinated
+  .pet-vacinated::before{
+    font-family:awesome;
+    content:"\f48e";
+  };//age
+  .pet-age::before{
+    font-family:awesome;
+    content:"\f004";
+  };//gender - male
+  .pet-gender-male::before{
+    font-family:awesome;
+    content:"\f222";
+  };//gender - female
+  .pet-gender-female::before{
+    font-family:awesome;
+    content:"\f221";
+  };//tarining
+  .pet-trained::before{
+    font-family:awesome;
+    content:"\f0cb";
+  };//check
+  .pet-check::before{
+    font-family:awesome;
+    content:"\f14a";
+  } //random
+  .pet-random::before{
+    font-family:awesome;
+    content:"\f02b";
+  }//tag
+  .pet-weight::before{
+    font-family:awesome;
+    content:"\f496";
+  }//cat
+  .pet-cat::before{
+    font-family:awesome;
+    content:"\f6be";
+  }//dog
+  .pet-dog::before{
+    font-family:awesome;
+    content:"\f6d3";
+  }
+
+
+  
+
+  
+  
+  
+
+}
+
+.flex-right{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+.flex-left{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+// pet gallery
+ 
 .pet-details-pic-grid {
-  flex-basis: 70%;
+  flex-basis: 65%;
     margin-top: 20px;
     width: 100%;
     // height: 500px;

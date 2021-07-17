@@ -52,17 +52,19 @@ function _craeteTestData() {
         {
             name: 'muki',
             _id: '101',
-            type: "cat",
+            type: "dog",
+            breed: "Siberian Husky",
+            gender: "female",
             age: 1,
-            gender: "male",
             size: "small",
             color: "white",
             isVaccinated: true,
             trainedLevel: "basic",
             isSafeWithChild: true,
+            isPlayfull: true,
 
 
-            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum ligula in facilisis hendrerit. Quisque iaculis pellentesque congue. Integer sagittis commodo eros, quis mollis nisi rhoncus sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur enim velit, laoreet vitae egestas in, pretium eget sapien. Donec quis elit vitae lacus rhoncus vulputate. Maecenas at nisl eu mi dapibus convallis. Sed non magna ac lorem ultricies vulputate. Pellentesque nibh turpis, pharetra eu consequat tempor, sodales semper nisl. Praesent et enim in nunc sollicitudin dapibus.",
+            bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero            asperiores quos cum nostrum fuga nulla delectus. Tempore delectus, adaccusantium expedita exercitationem repellendus. Nisi ad, obcaecati ipsipsum impedit asperiores!",
             owner: {
                 _id: 'mq9YO',
                 fullname: 'Alex'
