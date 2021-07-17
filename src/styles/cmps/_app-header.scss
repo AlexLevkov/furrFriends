@@ -4,12 +4,15 @@
     justify-content: space-between;
     height: 7vh;
     background-color: $clr3;
-    align-items: center;
-    margin-bottom: 5px;
+    align-items: center;   
     color: $clr1;    
     
     .logo{
-        margin-right: 20px;        
+        margin-right: 20px;
+        font-family: awesome ;        
+        &::before{
+            content: "\f1b0";            
+        }        
     }
 
     nav {

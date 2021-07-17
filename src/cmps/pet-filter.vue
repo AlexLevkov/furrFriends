@@ -7,6 +7,12 @@
         {{ user.fullname }}
       </option>
     </select>
+    <select v-model="filter.type" @change="setFilter">
+      <option value="all">All</option>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="fish">Fish</option>
+    </select>
   </section>
 </template>
 
@@ -22,6 +28,7 @@ export default {
     return {
       filter: {        
         ownerId: "all",
+        type:'all',
       },
     };
   },

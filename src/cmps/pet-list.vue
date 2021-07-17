@@ -33,7 +33,8 @@ export default {
   methods: {
     goToOwnersPets(){
      const filterCopy = {
-        ownerId: this.pets[0].owner._id
+        ownerId: this.pets[0].owner._id,
+        type:'all',
       }
       this.$store.commit({ type: "setFilterBy", filterCopy });
       this.$router.push('/pet')

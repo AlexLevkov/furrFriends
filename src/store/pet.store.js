@@ -6,6 +6,7 @@ export const petStore = {
     pets: [],
     filterBy: {
       ownerId: 'all',
+      type:'all'
     }
   },
   mutations: {
@@ -68,17 +69,20 @@ export const petStore = {
       } else {
         petsToShow = pets.filter(pet => pet.owner._id === filterBy.ownerId)
       }
+      if (filterBy.type !== 'all') {
+        petsToShow = petsToShow.filter(pet => pet.type === filterBy.type)
+      }
       return petsToShow
     },
 
-    pukiPets({ pets }) {
-      return pets.filter(pet => pet.owner._id === 'e4k9i')
+    shelter1Pets({ pets }) {
+      return pets.filter(pet => pet.owner._id === 'QRR8p')
     },
-    mukiPets({ pets }) {
-      return pets.filter(pet => pet.owner._id === 'zk9NY')
+    shelter2Pets({ pets }) {
+      return pets.filter(pet => pet.owner._id === '2f323')
     },
     otherPets({ pets }) {
-      return pets.filter(pet => pet.owner._id !== 'zk9NY' && pet.owner._id !== 'e4k9i')
+      return pets.filter(pet => pet.owner._id !== 'QRR8p' && pet.owner._id !== '2f323')
     },
     filterBy({ filterBy }) {
       return filterBy

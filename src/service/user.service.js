@@ -57,18 +57,26 @@ _craeteTestData()
 function _craeteTestData() {
     const users = [
         {
-            fullname: "alex",
-            username: "alex",
+            fullname: "Shelter1",
+            username: "Shelter1",
             password: 123,
             isAdmin: false,
-            _id: "QRR8p"
+            _id: "QRR8p",
+            shelter: {
+                lat: 31.5,
+                lng: 11
+            }
         },
         {
-            fullname: "sasha",
-            username: "sasha",
+            fullname: "Shelter2",
+            username: "Shelter2",
             password: 123,
             isAdmin: false,
-            _id: "2f323"
+            _id: "2f323",
+            shelter: {
+                lat: 31.5,
+                lng: 11
+            }
         },
         {
             fullname: "puki",
@@ -83,6 +91,13 @@ function _craeteTestData() {
             password: 123,
             isAdmin: false,
             _id: "zk9NY"
+        },
+        {
+            fullname: "Admin",
+            username: "Admin",
+            password: 'Admin',
+            isAdmin: true,
+            _id: "bjk12"
         },
     ]
     localStorage.setItem('user', JSON.stringify(users));

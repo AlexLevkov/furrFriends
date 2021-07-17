@@ -2,8 +2,8 @@
   <section class="app-home main-layout min-height">
     <img src="../assets/images/hero.jpg" />
     <!-- <pet-app></pet-app> -->
-    <pet-list :pets="pukiPets" :isHomepage="true"></pet-list>
-    <pet-list :pets="mukiPets" :isHomepage="true"></pet-list>
+    <pet-list :pets="shelter1Pets" :isHomepage="true"></pet-list>
+    <pet-list :pets="shelter2Pets" :isHomepage="true"></pet-list>
     <pet-list :pets="otherPets" :isHomepage="true"></pet-list>
   </section>
 </template>
@@ -23,11 +23,11 @@ export default {
     return {};
   },
   computed: {
-    pukiPets() {
-      return this.$store.getters.pukiPets;
+    shelter1Pets() {
+      return this.$store.getters.shelter1Pets;
     },
-    mukiPets() {
-      return this.$store.getters.mukiPets;
+    shelter2Pets() {
+      return this.$store.getters.shelter2Pets;
     },
     otherPets() {
       return this.$store.getters.otherPets;
