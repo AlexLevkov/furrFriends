@@ -1,7 +1,7 @@
 <template>
   <section class="user-main main-layout">
     <div class="user-form-container">
-        <button @click="closeModal()">X</button>
+      <button @click="closeModal()">X</button>
       <form class="signup-form" @submit.prevent="signup()" v-if="!loggedinUser">
         <h2>Please Signup</h2>
         <input v-model="newUser.fullname" type="text" />
@@ -10,7 +10,7 @@
         <button>Signup</button>
       </form>
       <form class="login-form" @submit.prevent="login()" v-if="!loggedinUser">
-      <h2>Or</h2>
+        <h2>Or</h2>
         <select v-model="selectedUsername">
           <option v-for="user in users" :key="user._id">
             {{ user.username }}
@@ -85,11 +85,13 @@ export default {
         });
     },
     logout() {
-      this.$store.dispatch({ type: "logout" });
+      this.$store.dispatch({ type: "logout" }).then(() => {
+        this.$router.push({ name: "home" });
+      });
     },
-    closeModal(){
-        this.$store.commit({ type: 'toggleUserModal' })
-    }
+    closeModal() {
+      this.$store.commit({ type: "toggleUserModal" });
+    },
   },
 };
 </script>

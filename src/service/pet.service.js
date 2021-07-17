@@ -12,40 +12,42 @@ function query() {
     return storageService.query(`pet`)
 }
 
-function remove(id) {
-    return storageService.delete(`pet/${id}`).then(res => res.data)
+function remove(petId) {
+    return storageService.remove('pet', petId)
 }
 
 function getById(petId) {
-    console.log('petId', petId);
-    // return storageService.get(`pet/${id}`)
     return storageService.get('pet', petId)
 }
 
 
 function save(pet) {
-    const petToSave = JSON.parse(JSON.stringify(pet))
-    if (petToSave._id) {
-        return storageService.put('pet', petToSave)
+    if (pet._id) {
+        return storageService.put('pet', pet)
     } else {
-        return storageService.post('pet', petToSave)
+        return storageService.post('pet', pet)
     }
 }
 
 // improve FIX
 function getEmptyPet() {
     return {
-        _id: '',
-        nickname: '',
-        createdAt: Date.now(),
-        type: ""
+        name: '',
+        type: 'dog',
+        breed: '',
+        gender: 'male',
+        age: 1,
+        size: "small",
+        color: '',
+        isVaccinated: false,
+        trainedLevel: "basic",
+        isSafeWithChild: false,
+        isPlayfull: true,
+        bio: "lorem",
     }
 }
 
-_craeteTestData()
-
-
-
+// _craeteTestData()
 
 function _craeteTestData() {
     const pets = [
