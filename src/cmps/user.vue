@@ -1,27 +1,37 @@
 <template>
   <section class="user-main main-layout">
     <div class="user-form-container">
-        <button @click="closeModal()">X</button>
+      <el-button @click="closeModal()" type="info" circle>X</el-button>
       <form class="signup-form" @submit.prevent="signup()" v-if="!loggedinUser">
         <h2>Please Signup</h2>
-        <input v-model="newUser.fullname" type="text" />
-        <input v-model="newUser.username" type="text" />
-        <input v-model="newUser.password" type="password" />
-        <button>Signup</button>
+        <el-input placeholder="Full name" v-model="newUser.fullname" clearable>
+        </el-input>
+        <el-input placeholder="User Name" v-model="newUser.username" clearable>
+        </el-input>
+        <el-input
+          placeholder="Password"
+          v-model="newUser.password"
+          show-password
+        ></el-input>
+        <el-button @click="signup()" type="success" round>Signup</el-button>
       </form>
       <form class="login-form" @submit.prevent="login()" v-if="!loggedinUser">
-      <h2>Or</h2>
+        <h2>Or</h2>
         <select v-model="selectedUsername">
           <option v-for="user in users" :key="user._id">
             {{ user.username }}
           </option>
         </select>
-        <input v-model="password" type="password" />
-        <button>Login</button>
+        <el-input
+          placeholder="Password"
+          v-model="password"
+          show-password
+        ></el-input>
+        <el-button @click="login()" type="success" round>Login</el-button>
       </form>
 
       <div v-if="loggedinUser">
-        <button @click="logout">Logout</button>
+        <el-button @click="logout" type="info" round>Logout</el-button>
         {{ loggedinUser }}
       </div>
     </div>
@@ -87,9 +97,10 @@ export default {
     logout() {
       this.$store.dispatch({ type: "logout" });
     },
-    closeModal(){
-        this.$store.commit({ type: 'toggleUserModal' })
-    }
+    closeModal() {
+      this.$store.commit({ type: "toggleUserModal" });
+    },
   },
 };
 </script>
+

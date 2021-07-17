@@ -3,6 +3,7 @@
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
+@import 'setup/element-ui';
 
 // BASICS
 @import 'basics/helpers';
@@ -66,3 +67,4 @@ ul{
         }
     }
 }
+

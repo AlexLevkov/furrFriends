@@ -1,0 +1,48 @@
+  // arrow dropdown
+
+.el-dropdown-link {
+    cursor: pointer;
+    color: $clr5;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+
+
+  // button dropdown
+
+  .el-dropdown {
+    vertical-align: top;
+  }
+
+  .el-dropdown + .el-dropdown {
+    margin-left: 15px;
+  }
+
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+
+  .el-button--primary{
+      margin-top: 5px;
+      margin-right: 5px;
+      background-color: $clr5;
+      &:hover{
+          background-color: white;
+          color: $clr5
+      }
+      border-color:$clr5
+  }
+
+  .el-button--success{
+      background-color:$clr5 ;
+  }
+
+  .el-button.is-circle{
+      margin-top: 5px;
+  }
+
+
+  .el-button--info{
+      margin-left: 90%;
+  }
