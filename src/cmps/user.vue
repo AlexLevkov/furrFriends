@@ -95,7 +95,9 @@ export default {
         });
     },
     logout() {
-      this.$store.dispatch({ type: "logout" });
+      this.$store.dispatch({ type: "logout" }).then(() => {
+        this.$router.push({ name: "home" });
+      });
     },
     closeModal() {
       this.$store.commit({ type: "toggleUserModal" });

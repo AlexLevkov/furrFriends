@@ -2,7 +2,7 @@
 .pet-details-container{
   display: flex;
   flex-direction: row;
-  height: 700px;
+  height: fit-content;
 }
 
 // pet info - bio and properties
@@ -91,14 +91,6 @@
     font-family:awesome;
     content:"\f6d3";
   }
-
-
-  
-
-  
-  
-  
-
 }
 
 .flex-right{
