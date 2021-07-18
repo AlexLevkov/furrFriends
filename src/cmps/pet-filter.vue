@@ -1,37 +1,30 @@
 <template>
   <section class="pet-filter">
-    <el-dropdown>
-      <el-button type="primary">
-        Owner<i class="el-icon-arrow-down el-icon--right"></i>
-      </el-button>
-      <el-dropdown-menu
-        v-model="filter.ownerId"
-        @change="setFilter"
-        slot="dropdown"
+    <el-select
+      v-model="filter.ownerId"
+      placeholder="Select Shelter"
+      @change="setFilter"
+    >
+      <el-option
+        v-for="user in users"
+        :key="user._id"
+        :label="user.fullname"
+        :value="user._id"
       >
-        <el-dropdown-item value="all">all</el-dropdown-item>
-        <el-dropdown-item
-          v-for="user in users"
-          :key="user._id"
-          :value="user._id"
-          >{{ user.fullname }}</el-dropdown-item
-        >
-      </el-dropdown-menu>
-    </el-dropdown>
+      </el-option>
+      <el-option :label="'All Shelters'" :value="'all'">All Shelters</el-option>
+    </el-select>
 
-    <select v-model="filter.ownerId" @change="setFilter">
-      <option value="all">All</option>
-      <option v-for="user in users" :key="user._id" :value="user._id">
-        {{ user.fullname }}
-      </option>
-    </select>
-
-    <select v-model="filter.type" @change="setFilter">
-      <option value="all">All</option>
-      <option value="dog">Dog</option>
-      <option value="cat">Cat</option>
-      <option value="fish">Fish</option>
-    </select>
+    <el-select
+      v-model="filter.type"
+      @change="setFilter"
+      placeholder="Select Pet Type"
+    >
+      <el-option :label="'All Pets'" :value="'all'">All</el-option>
+      <el-option :label="'Dog'" :value="'dog'">dog</el-option>
+      <el-option :label="'Cat'" :value="'cat'">cat</el-option>
+      <el-option :label="'Fish'" :value="'fish'">fish</el-option>
+    </el-select>
   </section>
 </template>
 

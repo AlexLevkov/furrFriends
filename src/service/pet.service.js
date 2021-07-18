@@ -47,7 +47,7 @@ function getEmptyPet() {
     }
 }
 
-// _craeteTestData()
+_craeteTestData()
 
 function _craeteTestData() {
     const pets = [

@@ -23,25 +23,29 @@
         <button>Post</button>
       </form>
       <form v-if="isFormOpen" @submit.prevent="addPet">
-        <input type="text" v-model="petToAdd.name" placeholder="Pet name" />
-        <select v-model="petToAdd.type">
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="fish">Fish</option>
-          <option value="snake">Snake</option>
-        </select>
-        <label>
-          <input type="radio" value="male" v-model="petToAdd.gender" />
-          Male
-        </label>
-        <label>
-          <input type="radio" value="female" v-model="petToAdd.gender" />
-          Female
-        </label>
-        <label>
-          Age
-          <input type="number" v-model="petToAdd.age" />
-        </label>
+        <el-input v-model="petToAdd.name" placeholder="Pet's name"></el-input>
+
+        <el-select v-model="petToAdd.type" placeholder="Select Pet Type">
+          <el-option :label="'Dog'" :value="'dog'">dog</el-option>
+          <el-option :label="'Cat'" :value="'cat'">cat</el-option>
+          <el-option :label="'Fish'" :value="'fish'">fish</el-option>
+        </el-select>
+
+        <el-radio v-model="petToAdd.gender" label="male"></el-radio>
+
+        <el-radio v-model="petToAdd.gender" label="female"></el-radio>
+
+        <input
+          v-model="petToAdd.age"
+          type="range"
+          id="age"
+          name="age"
+          min="0"
+          max="25"
+          step="0.2"
+        />
+        <span id="sAge">{{ petToAdd.age }} years</span>
+
         <select v-model="petToAdd.size">
           <option value="small">Small</option>
           <option value="medium">Medium</option>
