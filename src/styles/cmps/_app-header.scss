@@ -9,10 +9,16 @@
     
     .logo{
         margin-right: 20px;
-        font-family: awesome ;        
+        font-family: awesome ;  
+        position: fixed;      
         &::before{
             content: "\f1b0";            
         }        
+    }
+
+    .logo-text{
+        font-family:Pacifico;
+        margin-left:25px
     }
 
     nav {
@@ -29,10 +35,10 @@
         font-size: 1.5rem;       
         margin-left: 10px;
 
-        &:hover{               
-            // box-shadow: inset 0px -5px 0px 0px $clr2;
-            // background-color: $clr4;
-        }
+        // &:hover{               
+        //     // box-shadow: inset 0px -5px 0px 0px $clr2;
+        //     // background-color: $clr4;
+        // }
     }
     button{       
         font-size: 1.5rem;

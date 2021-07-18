@@ -2,7 +2,10 @@
   <section class="app-header main-layout">
     <div class="header-container">
       <nav>
-        <router-link class="logo" to="/">logo</router-link>
+        <router-link class="logo-container" to="/"
+          ><span class="logo"></span
+          ><span class="logo-text">FurrFriends</span></router-link
+        >
         <router-link to="/pet">Search</router-link>
         <router-link to="/about">About</router-link>
       </nav>
