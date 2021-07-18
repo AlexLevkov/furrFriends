@@ -2,7 +2,7 @@
   <section class="pet-list">    
     <ul class="pet-preview-container">
       <li v-for="pet in pets" :key="pet._id">
-        <pet-preview :isUserPre="isUserPre" :pet="pet"></pet-preview>
+        <pet-preview @edit="edit" :isUserPre="isUserPre" :pet="pet"></pet-preview>
       </li>
     <button class="see-more" v-if="isHomepage" @click="goToOwnersPets">See more...</button>
     </ul>
@@ -42,6 +42,9 @@ export default {
       }
       this.$store.commit({ type: "setFilterBy", filterCopy });
       this.$router.push('/pet')
+    },
+    edit(petToEdit){
+      this.$emit('edit', petToEdit)
     }
   },
 };

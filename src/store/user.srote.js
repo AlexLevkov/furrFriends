@@ -24,11 +24,19 @@ export const userStore = {
         setUsers(state, { users }) {
             state.users = users
         },
+        setUser(state, {user}){
+            const idx = state.users.findIndex(usr => usr._id === user._id)
+            if(idx === -1){
+                state.users.push(user) 
+            } else {
+                state.users.splice(idx, 1, user) 
+            }
+        },
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id === userId)
         },
         toggleUserModal(state) {
-            state.isUserModalOpen = !state.isUserModalOpen            
+            state.isUserModalOpen = !state.isUserModalOpen
         }
     },
     actions: {
@@ -89,6 +97,16 @@ export const userStore = {
                 commit({ type: 'setUser', user })
             } catch (err) {
                 console.log('userStore: Error in updateUser', err)
+                throw err
+            }
+        },
+        async addReview({ commit }, { review, user }){            
+            try {
+                user = await userService.addReview(user, review)
+                console.log('user:', user)
+                commit({ type: 'setUser', user }) 
+            } catch (err) {
+                console.log('userStore: Error in adding review', err)
                 throw err
             }
         }

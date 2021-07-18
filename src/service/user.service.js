@@ -8,7 +8,8 @@ export const userService = {
     signup,
     update,
     getLoggedinUser,
-    logout
+    logout,
+    addReview,
 
 }
 
@@ -44,6 +45,13 @@ async function signup(userCred) {
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser') || 'null')
+}
+
+async function addReview(user, review) {
+    if (!user.reviews) user.reviews = []
+    user.reviews.unshift(review)
+    await storageService.put('user', user)
+    return user
 }
 
 function _saveLocalUser(user) {

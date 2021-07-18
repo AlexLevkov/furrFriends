@@ -10,8 +10,18 @@
         accusantium expedita exercitationem repellendus. Nisi ad, obcaecati ipsa
         ipsum impedit asperiores!
       </p>
-      {{ user }}
+      <article class="user-reviews" v-for="review in user.reviews" :key="review.byUser"
+      >
+        <h3> Given by {{ review.byUser }}</h3>
+        <p>{{ review.text }}</p>
+        <hr />
+      </article>
+      <button @click="toggleReview">Add Review</button>
       <button @click="toggleForm">Add pet</button>
+      <form v-if="isReviewOpen" @submit.prevent="addreview">
+        <textarea v-model="reviewText" cols="30" rows="10"></textarea>
+        <button>Post</button>
+      </form>
       <form v-if="isFormOpen" @submit.prevent="addPet">
         <input type="text" v-model="petToAdd.name" placeholder="Pet name" />
         <select v-model="petToAdd.type">
@@ -55,9 +65,13 @@
           <option value="advanced">Advanced</option>
         </select>
 
-        <button>add</button>
+        <button>Save</button>
       </form>
-      <pet-list :isUserPre="isLoggedinUser" :pets="usersPets"></pet-list>
+      <pet-list
+        @edit="editPet"
+        :isUserPre="isLoggedinUser"
+        :pets="usersPets"
+      ></pet-list>
     </div>
   </section>
 </template>
@@ -84,6 +98,8 @@ export default {
       user: null,
       isFormOpen: false,
       petToAdd: null,
+      isReviewOpen: false,
+      reviewText: "",
     };
   },
   computed: {
@@ -101,6 +117,9 @@ export default {
     toggleForm() {
       this.isFormOpen = !this.isFormOpen;
     },
+    toggleReview() {
+      this.isReviewOpen = !this.isReviewOpen;
+    },
     addPet() {
       const petToAdd = JSON.parse(JSON.stringify(this.petToAdd));
       petToAdd.owner = {
@@ -111,6 +130,26 @@ export default {
         this.petToAdd = petService.getEmptyPet();
         this.toggleForm();
       });
+    },
+    editPet(petToEdit) {
+      this.toggleForm();
+      this.petToAdd = petToEdit;
+    },
+    addreview() {
+      const review = {
+        byUser: this.$store.getters.loggedinUser.fullname,
+        text: this.reviewText,
+      };
+      this.$store
+        .dispatch({
+          type: "addReview",
+          review: review,
+          user: this.user,
+        })
+        .then(() => {
+          this.reviewText = "";
+          this.toggleReview();
+        });
     },
   },
 };
