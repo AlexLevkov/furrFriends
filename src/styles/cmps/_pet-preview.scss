@@ -3,18 +3,24 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-.pet-card{
+.pet-card{    
     height: 270px;
-    width: 200px;
+    width: 200px;    
     border: solid $clr2 2px;
     text-align: center;
     border-radius: 7px;
+    position: relative;
     &:hover{
-        cursor: pointer;        
+        cursor: pointer;
+        .pet-card-info{
+            opacity: 1;
+            transition: 0.5s;
+        }
+
     }
-    img{
-        margin-bottom: 10px;
-    }
+    // img{
+    //     margin-bottom: 10px;
+    // }
     button{        
         font-weight: 600;
         font-size: 1.1em;
@@ -24,6 +30,27 @@
         }
         
     }
+}
+.pet-card-img-container{
+    @include aspect-ratio(3, 4);
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   z-index: -1;
+
+    
+}
+
+.pet-card-info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    top: 60%;
+    border-radius: 50% 50% 7px 7px ;
+    background-color:whitesmoke;    
+    opacity: 0.8;
 }
 .see-more{
     align-self: flex-end;
