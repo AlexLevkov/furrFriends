@@ -46,3 +46,12 @@
   .el-button--info{
       margin-left: 90%;
   }
+
+  .el-select .el-input.is-focus .el-input__inner {
+    border-color: $clr5
+}
+
+.el-select-dropdown__item.selected {
+    color: $clr5;
+    font-weight: 700;
+}

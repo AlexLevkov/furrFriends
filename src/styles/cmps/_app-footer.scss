@@ -3,4 +3,10 @@
 .app-footer{
 background-color: $clr3;
 height: 7vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: whitesmoke;
+font-family: title;
+font-size:1.5rem
 }

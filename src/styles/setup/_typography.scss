@@ -12,7 +12,11 @@
 }
 @font-face {
     font-family: awesome ;
-    src: url(~@/styles/font-awesome/fa-brands-400.ttf);
-    src: url(~@/styles/font-awesome/fa-regular-400.ttf);
-    src: url(~@/styles/font-awesome/fa-solid-900.ttf);
+    src: url(~@/styles/fonts/font-awesome/fa-brands-400.ttf);
+    src: url(~@/styles/fonts/font-awesome/fa-regular-400.ttf);
+    src: url(~@/styles/fonts/font-awesome/fa-solid-900.ttf);
+}
+@font-face {
+    font-family: title ;
+    src: url(~@/styles/fonts/uchen-regular/Uchen-Regular.ttf);
 }

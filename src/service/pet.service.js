@@ -39,10 +39,12 @@ function getEmptyPet() {
         age: 1,
         size: "small",
         color: '',
-        isVaccinated: false,
         trainedLevel: "basic",
+        isVaccinated: false,
         isSafeWithChild: false,
-        isPlayfull: true,
+        isPlayfull: false,
+        isCastrated: false,
+        isBirthCertificate: false,
         bio: "lorem",
     }
 }
@@ -52,7 +54,7 @@ _craeteTestData()
 function _craeteTestData() {
     const pets = [
         {
-            name: 'muki',
+            name: 'Lasi',
             _id: 'p101',
             type: "dog",
             breed: "Siberian Husky",
@@ -60,12 +62,12 @@ function _craeteTestData() {
             age: 1,
             size: "small",
             color: "white",
-            isVaccinated: true,
             trainedLevel: "basic",
+            isVaccinated: true,
             isSafeWithChild: true,
             isPlayfull: true,
-
-
+            isCastrated: true,
+            isBirthCertificate: true,
             bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero            asperiores quos cum nostrum fuga nulla delectus. Tempore delectus, adaccusantium expedita exercitationem repellendus. Nisi ad, obcaecati ipsipsum impedit asperiores!",
             owner: {
                 _id: 'QRR8p',

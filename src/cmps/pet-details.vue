@@ -7,7 +7,10 @@
         <div class="pet-bio">
           {{ pet.name }}'s bio:
           {{ pet.bio }}
-          <button class="adopt-btn pet-tag" @click="adoptPet">Adopt</button>
+
+          <el-button @click="adoptPet" class="adopt-btn" type="success" round>
+            Adopt Now!</el-button
+          >
         </div>
 
         <div class="pet-properties">
@@ -56,8 +59,22 @@
             >
               safe with children</span
             >
-            <span class="pet-check pet-tag"> check</span>
-            <span class="pet-random pet-tag"> random</span>
+            <span
+              :class="{ 'pet-castrated pet-tag': pet.isCastrated }"
+              v-show="pet.isCastrated"
+            >
+              castrated</span
+            >
+            <span
+              :class="{
+                'pet-birth-certificate pet-tag': pet.isBirthCertificate,
+              }"
+              v-show="pet.isBirthCertificate"
+            >
+              birth certificate</span
+            >
+            <!-- <span class="pet-check pet-tag"> check</span>
+            <span class="pet-random pet-tag"> random</span> -->
           </div>
         </div>
       </div>

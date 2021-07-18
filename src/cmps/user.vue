@@ -31,7 +31,9 @@
       </form>
 
       <div v-if="loggedinUser">
-        <el-button @click="logout" type="info" round>Logout</el-button>
+        <el-button class="modal-logout" @click="logout" type="info" round
+          >Logout</el-button
+        >
         {{ loggedinUser }}
       </div>
     </div>

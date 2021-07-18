@@ -32,6 +32,13 @@
     }
   }
 
+  .adopt-btn{
+      width: 80%;
+      align-self: center;
+      margin: 20px;
+  }
+
+
 // pet properties
 
 .pet-tag{
@@ -69,16 +76,17 @@
   };//tarining
   .pet-trained::before{
     font-family:awesome;
-    content:"\f0cb";
-  };//check
-  .pet-check::before{
+    content:"\f0f3";
+    
+  };//birth-certificate
+  .pet-birth-certificate::before{
     font-family:awesome;
-    content:"\f14a";
-  } //random
-  .pet-random::before{
+    content:"\f03a";
+  } //castrated
+  .pet-castrated::before{
     font-family:awesome;
     content:"\f02b";
-  }//tag
+  }//weight
   .pet-weight::before{
     font-family:awesome;
     content:"\f496";

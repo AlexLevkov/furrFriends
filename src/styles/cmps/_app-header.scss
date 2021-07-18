@@ -5,7 +5,8 @@
     height: 7vh;
     background-color: $clr3;
     align-items: center;   
-    color: $clr1;    
+    color: $clr1;  
+    font-family: title;  
     
     .logo{
         margin-right: 20px;
@@ -42,10 +43,21 @@
     }
     button{       
         font-size: 1.5rem;
-        margin-right: 10px;       
+        margin-right: 10px;  
+        margin-left: 10px;     
+        font-family: title
     }
     .router-link-exact-active{
         // color: $clr4;
         font-weight: bolder;
     }    
+}
+
+.header-nav{
+    font-family: title;
+}
+
+.user-name-avatar::after{
+    font-family: awesome;
+    content:'\f2bd'
 }
