@@ -58,6 +58,7 @@ function _craeteTestData() {
             _id: 'p101',
             type: "dog",
             breed: "Siberian Husky",
+            imgUrl:'dog/dog-1.jpg',
             gender: "female",
             age: 1,
             size: "small",
@@ -78,6 +79,7 @@ function _craeteTestData() {
             name: 'tuki',
             _id: 'p102',
             type: "parrot",
+            imgUrl:'parrot/parrot1.jpg',
             age: 2,
             gender: "male",
             size: "small",
@@ -95,6 +97,7 @@ function _craeteTestData() {
             name: 'shuki',
             _id: 'p103',
             type: "dog",
+            imgUrl:'dog/dog1.jpg',
             age: 7,
             gender: "male",
             size: "big",
@@ -111,7 +114,8 @@ function _craeteTestData() {
         {
             name: 'shusi',
             _id: 'p104',
-            type: "snake",
+            type: "parrot",
+            imgUrl:'parrot/parrot2.jpg',
             age: 3,
             gender: "female",
             size: "big",
@@ -129,6 +133,7 @@ function _craeteTestData() {
             name: 'mikey',
             _id: 'p105',
             type: "dog",
+            imgUrl:'dog/dog2.jpg',
             age: 4,
             gender: "male",
             size: "small",
@@ -146,6 +151,7 @@ function _craeteTestData() {
             name: 'momy',
             _id: 'p106',
             type: "cat",
+            imgUrl:'cat/cat1.jpg',
             age: 1,
             gender: "male",
             size: "small",
@@ -163,6 +169,7 @@ function _craeteTestData() {
             name: 'popy',
             _id: 'p107',
             type: "cat",
+            imgUrl:'cat/cat1.jpg',
             age: 1,
             gender: "male",
             size: "small",
@@ -180,6 +187,7 @@ function _craeteTestData() {
             name: 'vovik',
             _id: 'p108',
             type: "fish",
+            imgUrl:'fish/fish1.jpg',
             age: 1,
             gender: "male",
             size: "small",
@@ -191,6 +199,24 @@ function _craeteTestData() {
             owner: {
                 _id: 'zk9NY',
                 fullname: 'muki'
+            }
+        },
+        {
+            name: 'vovik2',
+            _id: 'p109',
+            type: "fish",
+            imgUrl:'fish/fish2.jpg',
+            age: 1,
+            gender: "male",
+            size: "small",
+            color: "orange",
+            isVaccinated: false,
+            trainedLevel: "none",
+            isSafeWithChild: true,
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum ligula in facilisis hendrerit. Quisque iaculis pellentesque congue. Integer sagittis commodo eros, quis mollis nisi rhoncus sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur enim velit, laoreet vitae egestas in, pretium eget sapien. Donec quis elit vitae lacus rhoncus vulputate. Maecenas at nisl eu mi dapibus convallis. Sed non magna ac lorem ultricies vulputate. Pellentesque nibh turpis, pharetra eu consequat tempor, sodales semper nisl. Praesent et enim in nunc sollicitudin dapibus.",
+            owner: {
+                _id: 'QRR8p',
+                fullname: 'Shelter1'
             }
         },
     ]

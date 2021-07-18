@@ -1,15 +1,20 @@
 <template>
   <section class="pet-preview">
     <article class="pet-card" @click="showPetDetails(pet._id)">
-      <h3>{{ pet.name }}</h3>
-      <img src="../assets/images/cat-logo.gif" />
-      <div v-if="isUserPre">
-        <button @click.stop="editPet">Edit</button>
-        <button @click.stop="removePet">Delete</button>
+      <div class="pet-card-img-container">
+        <img src="@/assets/images/dog/dog1.jpg" />
       </div>
-      <button v-else @click.stop="goToUser(pet.owner._id)">
-        Owend By: {{ pet.owner.fullname }}
-      </button>
+
+      <div class="pet-card-info">
+        <h3>{{ pet.name }}</h3>
+        <div v-if="isUserPre">
+          <button @click.stop="editPet">Edit</button>
+          <button @click.stop="removePet">Delete</button>
+        </div>
+        <button v-else @click.stop="goToUser(pet.owner._id)">
+          Owend By: {{ pet.owner.fullname }}
+        </button>
+      </div>
     </article>
   </section>
 </template>
@@ -20,7 +25,7 @@ export default {
   components: {},
   props: {
     pet: {
-      type: Object,
+      type: Object,      
     },
     isUserPre: {
       type: Boolean,
@@ -31,7 +36,12 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    petImg() {
+      console.log("this.pet.imgUrl:", this.pet.imgUrl);
+      return this.pet.imgUrl;
+    },
+  },
   methods: {
     showPetDetails() {
       this.$router.push({
@@ -45,10 +55,10 @@ export default {
     removePet() {
       this.$store.dispatch({ type: "removePet", petId: this.pet._id });
     },
-    editPet(){      
-      const petToEdit = JSON.parse(JSON.stringify(this.pet))
-      this.$emit('edit', petToEdit)
-    }
+    editPet() {
+      const petToEdit = JSON.parse(JSON.stringify(this.pet));
+      this.$emit("edit", petToEdit);
+    },
   },
 };
 </script>
