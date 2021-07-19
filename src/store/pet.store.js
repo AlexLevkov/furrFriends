@@ -85,15 +85,21 @@ export const petStore = {
     shelter1Pets({ pets }) {
       return pets.filter(pet => pet.owner._id === 'QRR8p')
     },
+    
     shelter2Pets({ pets }) {
       return pets.filter(pet => pet.owner._id === '2f323')
     },
-    otherPets({ pets }) {
-      return pets.filter(pet => pet.owner._id !== 'QRR8p' && pet.owner._id !== '2f323')
+
+    sortedByLikes({ pets }) {
+      const sortedPaets = JSON.parse(JSON.stringify(pets))
+      sortedPaets.sort((a, b) => {
+        return b.likes - a.likes
+      })
+      return sortedPaets.slice(0, 7)
     },
     filterBy({ filterBy }) {
       return filterBy
-    },    
+    },
 
   },
   modules: {

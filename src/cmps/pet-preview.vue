@@ -2,7 +2,9 @@
 	<section class="pet-preview">
 		<article class="pet-card" @click="showPetDetails(pet._id)">
 			<!-- <div>❤</div> -->
-			<ToggleFavorite />
+			<ToggleFavorite :likes="pet.likes" />
+			<span>{{pet.likes}}</span>		
+
 			<div class="pet-card-img-container">
 				<img :src="require('@/assets/images/animal/' + petImg)" />
 			</div>
