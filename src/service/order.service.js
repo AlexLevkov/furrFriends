@@ -1,6 +1,6 @@
 import { storageService } from './async-storage.service.js'
 
-export const orederService ={
+export const orderService ={
     query,
     remove,
     getById,
@@ -11,8 +11,8 @@ function query(){
     return storageService.query('order')
 }
 
-function remove(orderId){
-    return storageService.remove('oreder', orderId)
+function remove(orderId){    
+    return storageService.remove('order', orderId)
 }
 
 function getById(orderId){

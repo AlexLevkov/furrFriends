@@ -44,9 +44,8 @@ export default {
 		return {};
 	},
 	computed: {
-		petImg() {
-			console.log("this.pet.imgUrl:", this.pet.imgUrl);
-			return this.pet.imgUrl;
+		petImg() {			
+			return this.pet.imgUrl[0];
 		},
 	},
 	methods: {

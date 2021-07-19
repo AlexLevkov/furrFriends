@@ -81,13 +81,13 @@
 
       <div class="pet-details-pic-grid">
         <article class="article-img-1">
-          <img class="img-details img-1" src="../assets/images/dog/dog-1.jpg" />
+          <img class="img-details img-1" :src="require('@/assets/images/animal/' + petImg1)"  />
         </article>
         <article class="article-img-2">
-          <img class="img-details img-2" src="../assets/images/dog/dog-2.jpg" />
+          <img class="img-details img-2" :src="require('@/assets/images/animal/' + petImg2)"  />
         </article>
         <article class="article-img-3">
-          <img class="img-details img-3" src="../assets/images/dog/dog-3.jpg" />
+          <img class="img-details img-3" :src="require('@/assets/images/animal/' + petImg3)"  />
         </article>
       </div>
     </div>
@@ -115,6 +115,15 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
+    petImg1() {			
+			return this.pet.imgUrl[0];
+		},
+    petImg2() {			
+			return this.pet.imgUrl[1];
+		},
+    petImg3() {			
+			return this.pet.imgUrl[2];
+		},
   },
   methods: {
     async getPet() {
@@ -128,7 +137,12 @@ export default {
     },
     adoptPet() {
       if (this.loggedinUser) {
-        alert("Congtraz you are a pet owner!");
+        const order = {
+          orderBy: this.loggedinUser._id,
+          orderFor: this.pet._id,
+          created: Date.now(),
+        }
+        this.$store.dispatch({type:'saveOrder', orderToSave: order}).then(console.log)       
       } else {
         this.$store.commit({ type: "toggleUserModal" });
       }

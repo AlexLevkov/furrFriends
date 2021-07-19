@@ -1,5 +1,5 @@
 <template>
-  <section class="user-details main-layout min-height" v-if="user">
+  <section class="user-details main-layout min-height" v-if="user">    
     <div>
       <h2>Hello {{ user.fullname }}</h2>
       <img class="user-avatar" src="../assets/images/user.png" />
@@ -9,7 +9,14 @@
         asperiores quos cum nostrum fuga nulla delectus. Tempore delectus, ad
         accusantium expedita exercitationem repellendus. Nisi ad, obcaecati ipsa
         ipsum impedit asperiores!
-      </p>
+      </p>          
+      <ul v-if="loggedinUserOrders.length">
+        <li>Adoption requests</li>
+        <li v-for="order in loggedinUserOrders" :key="order._id">
+          {{order}}
+          <button @click="removeOrder(order._id)">X</button>
+        </li>
+      </ul>
       <article
         class="user-reviews"
         v-for="review in user.reviews"
@@ -99,6 +106,7 @@ export default {
       this.user = user;
     });
     this.petToAdd = petService.getEmptyPet();
+    this.$store.dispatch({ type: "loadOrders" });
   },
   data() {
     return {
@@ -118,6 +126,15 @@ export default {
     isLoggedinUser() {
       return this.$store.getters.loggedinUser._id === this.user._id;
     },
+    loggedinUserOrders() {
+      return this.$store.getters.orders.filter(
+        (order) => order.orderBy === this.user._id
+      );
+    },
+    // orders() {
+    //   console.log('orders:', this.$store.getters.orders)
+    //   return this.$store.getters.orders;
+    // },
   },
 
   methods: {
@@ -158,6 +175,9 @@ export default {
           this.toggleReview();
         });
     },
+    removeOrder(orderId){      
+      this.$store.dispatch({type:'removeOrder', orderId})
+    }
   },
 
   watch: {

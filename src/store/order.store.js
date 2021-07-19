@@ -5,15 +5,15 @@ export const orderStore = {
     state: {
         orders: []
     },
-    gertters:{
-        orders({orders}){
+    getters: {
+        orders({ orders }) {            
             return orders
-        }
+        },        
     },
 
-    mutation: {
-        setOrders(state, { orders }) {
-            state.orders = orders
+    mutations: {
+        setOrders(state, { orders }) {            
+            state.orders = orders            
         },
         removeOrder(state, { orderId }) {
             const idx = state.orders.findIndex(order => order._id === orderId)
@@ -29,7 +29,7 @@ export const orderStore = {
         },
     },
     actions: {
-        async loadOrders({ commit }) {
+        async loadOrders({ commit }) {            
             try {
                 const orders = await orderService.query()
                 commit({ type: 'setOrders', orders })
@@ -38,19 +38,19 @@ export const orderStore = {
                 throw err
             }
         },
-        async removeOrder({commit}, payload){
-            try {
-                await orderService.remove(payload.OrderId)
+        async removeOrder({ commit }, payload) {
+            try {                
+                await orderService.remove(payload.orderId)
                 commit(payload)
-            } catch (err){
+            } catch (err) {
                 console.log('OrderStore: Cant remove order', err);
                 throw err
             }
         },
-        async saveOrder({commit}, payload){
+        async saveOrder({ commit }, payload) {            
             try {
                 const savedOrder = await orderService.save(payload.orderToSave)
-                commit({type:'saveOrder', orderToSave: savedOrder})
+                commit({ type: 'saveOrder', orderToSave: savedOrder })
             } catch (err) {
                 console.log('OrderStore: Cant save order', err)
                 throw err
