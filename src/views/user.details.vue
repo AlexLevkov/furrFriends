@@ -2,7 +2,7 @@
   <section class="user-details main-layout min-height" v-if="user">
     <div>
       <h2>Hello {{ user.fullname }}</h2>
-      <img src="../assets/images/user.png" />
+      <img class="user-avatar" src="../assets/images/user.png" />
       <h3>About</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
@@ -10,9 +10,12 @@
         accusantium expedita exercitationem repellendus. Nisi ad, obcaecati ipsa
         ipsum impedit asperiores!
       </p>
-      <article class="user-reviews" v-for="review in user.reviews" :key="review.byUser"
+      <article
+        class="user-reviews"
+        v-for="review in user.reviews"
+        :key="review.byUser"
       >
-        <h3> Given by {{ review.byUser }}</h3>
+        <h3>Given by {{ review.byUser }}</h3>
         <p>{{ review.text }}</p>
         <hr />
       </article>
@@ -154,6 +157,16 @@ export default {
           this.reviewText = "";
           this.toggleReview();
         });
+    },
+  },
+
+  watch: {
+    "$route.params.userId": {
+      immediate: true,
+      handler() {
+        const { userId } = this.$route.params;
+        userService.getById(userId).then((user) => (this.user = user));
+      },
     },
   },
 };
