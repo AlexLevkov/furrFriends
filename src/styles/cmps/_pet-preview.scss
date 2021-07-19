@@ -5,8 +5,7 @@
 }
 .pet-card{    
     height: 270px;
-    width: 200px;    
-    border: solid $clr2 2px;
+    width: 200px;        
     text-align: center;
     border-radius: 7px;
     position: relative;
@@ -18,17 +17,14 @@
         }
 
     }
-    // img{
-    //     margin-bottom: 10px;
-    // }
+    
     button{        
         font-weight: 600;
         font-size: 1.1em;
         &:hover{
             background-color: $clr4;           
             color: $clr1;
-        }
-        
+        }        
     }
 }
 .pet-card-img-container{
@@ -39,8 +35,7 @@
    top: 0;
    bottom: 0;
    z-index: -1;
-
-    
+   border-radius: 7px;    
 }
 
 .pet-card-info{
