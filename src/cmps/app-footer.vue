@@ -1,6 +1,6 @@
 <template>
-  <section class="main-layout">
-    <footer class="app-footer">Coffee's Rights - Alex & Alex</footer>
+  <section class="main-layout full app-footer">
+    <footer> Coffee's Rights - Alex & Alex</footer>
   </section>
 </template>
 

@@ -2,7 +2,7 @@
   <section class="pet-preview">
     <article class="pet-card" @click="showPetDetails(pet._id)">
       <div class="pet-card-img-container">
-        <img src="@/assets/images/dog/dog1.jpg" />
+        <img :src="require('@/assets/images/animal/' + petImg)" />
       </div>
 
       <div class="pet-card-info">

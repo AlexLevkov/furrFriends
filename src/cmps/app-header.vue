@@ -1,5 +1,5 @@
 <template>
-  <section class="app-header main-layout">
+  <section class="app-header main-layout full">
     <div class="header-container">
       <nav>
         <router-link class="logo-container" to="/"
