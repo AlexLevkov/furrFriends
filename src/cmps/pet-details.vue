@@ -16,34 +16,6 @@
         <div class="pet-properties">
           <div class="flex-left">
             <span
-              :class="{
-                'pet-dog pet-tag': pet.type === 'dog',
-                'pet-cat pet-tag': pet.type === 'cat',
-              }"
-            >
-              {{ pet.breed }}</span
-            >
-            <span class="pet-age pet-tag"> {{ pet.age }} yeras old</span>
-            <span class="pet-weight pet-tag"> size: {{ pet.size }}</span>
-
-            <span
-              :class="{
-                'pet-gender-male pet-tag': pet.gender === 'male',
-                'pet-gender-female pet-tag': pet.gender === 'female',
-              }"
-            >
-              {{ pet.gender }}</span
-            >
-            <span
-              :class="{ 'pet-playfull pet-tag': pet.isPlayfull }"
-              v-show="pet.isPlayfull"
-            >
-              playfull</span
-            >
-          </div>
-
-          <div class="flex-right">
-            <span
               :class="{ 'pet-vacinated pet-tag': pet.isVaccinated }"
               v-show="pet.isVaccinated"
             >
@@ -76,18 +48,46 @@
             <!-- <span class="pet-check pet-tag"> check</span>
             <span class="pet-random pet-tag"> random</span> -->
           </div>
+
+          <div class="flex-right">
+            <span
+              :class="{
+                'pet-dog pet-tag': pet.type === 'dog',
+                'pet-cat pet-tag': pet.type === 'cat',
+              }"
+            >
+              {{ pet.breed }}</span
+            >
+            <span class="pet-age pet-tag"> {{ pet.age }} yeras old</span>
+            <span class="pet-weight pet-tag"> size: {{ pet.size }}</span>
+
+            <span
+              :class="{
+                'pet-gender-male pet-tag': pet.gender === 'male',
+                'pet-gender-female pet-tag': pet.gender === 'female',
+              }"
+            >
+              {{ pet.gender }}</span
+            >
+            <span
+              :class="{ 'pet-playfull pet-tag': pet.isPlayfull }"
+              v-show="pet.isPlayfull"
+            >
+              playfull</span
+            >
+          </div>
         </div>
       </div>
 
       <div class="pet-details-pic-grid">
-        <article class="img-1">
-          <img class="img-details" src="../assets/images/dog/dog-1.jpg" />
+        <article class="article-img-1">
+          <img class="img-details img-1" src="../assets/images/dog/dog-1.jpg" />
         </article>
-        <article class="img-2">
-          <img class="img-details" src="../assets/images/dog/dog-2.jpg" />
+        <article class="article-img-2">
+          <img class="img-details img-2" src="../assets/images/dog/dog-2.jpg" />
         </article>
-        <article class="img-3">
-          <img class="img-details" src="../assets/images/dog/dog-3.jpg" />
+        <article class="article-img-3">
+          <img class="img-details img-3" src="../assets/images/dog/dog-3.jpg" />
         </article>
       </div>
     </div>
