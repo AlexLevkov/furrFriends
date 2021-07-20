@@ -1,8 +1,8 @@
 <template>
   <section class="pet-app main-layout min-height">
-    <div>
-      <pet-filter @filterBy="setFilter"></pet-filter>
-      <pet-list :pets="petsToShow"></pet-list>
+    <div class="pet-app-container">
+      <pet-filter class="pet-app-filter" @filterBy="setFilter"></pet-filter>
+      <pet-list class="pet-app-list" :pets="petsToShow"></pet-list>
     </div>
   </section>
 </template>

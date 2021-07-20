@@ -1,17 +1,27 @@
 <template>
   <!-- <section class="pet-details main-layout"> -->
   <section class="main-layout min-height">
-    <!-- {{ pet }} -->
-    <div class="pet-details-container">
+   
+    <div v-if="pet" class="pet-details-container">
+      <div v-if="pet.imgUrl" class="pet-details-pic-grid">
+        <article class="article-img-1">
+          <img class="img-details img-1" :src="require('@/assets/images/animal/' + petImg1)"  />
+        </article>
+        <article class="article-img-2">
+          <img class="img-details img-2" :src="require('@/assets/images/animal/' + petImg2)"  />
+        </article>
+        <article class="article-img-3">
+          <img class="img-details img-3" :src="require('@/assets/images/animal/' + petImg3)"  />
+        </article>
+      </div>
       <div class="pet-bio-contianer">
         <div class="pet-bio">
           {{ pet.name }}'s bio:
-          {{ pet.bio }}
-
-          <el-button @click="adoptPet" class="adopt-btn" type="success" round>
-            Adopt Now!</el-button
-          >
+          <p>{{pet.bio}}</p>
         </div>
+        
+          <el-button @click="adoptPet" class="adopt-btn" type="success" round>
+            Adopt Now!</el-button>
 
         <div class="pet-properties">
           <div class="flex-left">
@@ -79,17 +89,7 @@
         </div>
       </div>
 
-      <div class="pet-details-pic-grid">
-        <article class="article-img-1">
-          <img class="img-details img-1" :src="require('@/assets/images/animal/' + petImg1)"  />
-        </article>
-        <article class="article-img-2">
-          <img class="img-details img-2" :src="require('@/assets/images/animal/' + petImg2)"  />
-        </article>
-        <article class="article-img-3">
-          <img class="img-details img-3" :src="require('@/assets/images/animal/' + petImg3)"  />
-        </article>
-      </div>
+      
     </div>
   </section>
 </template>
