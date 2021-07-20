@@ -48,7 +48,7 @@ function getLoggedinUser() {
 }
 
 async function addReview(user, review) {
-    if (!user.reviews) user.reviews = []
+    if (!user.reviews) user.reviews = []    
     user.reviews.unshift(review)
     await storageService.put('user', user)
     return user
@@ -70,6 +70,20 @@ function _craeteTestData() {
             password: 123,
             isAdmin: false,
             _id: "QRR8p",
+            reviews:[
+                {
+                    byUser:'muki',
+                    text:'Shelter 1 is a licensed no-kill animal rescue and welfare organization dedicated to the rescue and adoption of stray dogs across the world, with a unique focus on Mexico. Border Tails Rescue also works with rural shelters across the country'
+                },
+                {
+                    byUser: 'puki',
+                    text: ' have been a volunteer at Border Tails, since shortly after they open their doors. I was so inspired by a new young rescue that not only took care of the animals in the states, but was willing to do international rescues also. Border Tails Does an amazing job of finding so many dogs their forever loving homes. Thank you Border Tails, for every life you save And for giving me the opportunity to be a part of it. If you\'re looking for a forever best friend, I highly recommend you stop in and see if that best friend is it looking for you also.'
+                },
+                {
+                    byUser:'Shuki',
+                    text:'Truly one of the best organizations to be in the field! Border Tails is amazing! From adoptions, educating, and helping the community they do it all!'
+                }
+            ],
             shelter: {
                 lat: 31.5,
                 lng: 11

@@ -44,8 +44,12 @@ export default {
 		return {};
 	},
 	computed: {
-		petImg() {			
-			return this.pet.imgUrl[0];
+		petImg() {
+			if(this.pet.imgUrl){
+				return this.pet.imgUrl[0];				
+			} else {
+				return 'cat-logo.gif'
+			}			
 		},
 	},
 	methods: {
