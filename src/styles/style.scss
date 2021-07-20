@@ -19,6 +19,8 @@
 @import 'cmps/pet-preview';
 @import 'cmps/user-details';
 @import 'cmps/app-about';
+@import 'cmps/pet-app';
+
 
 .hero{
     position: relative;
@@ -34,4 +36,24 @@
         text-align: right;
     }
 }
+
+.app-home{
+    h2{
+        margin: 0 auto;
+    }
+}
+
+
+
+// .flach{
+//     height: 100px;
+//     width: 100px;
+//     background-color: whitesmoke;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     border-radius: 0 0 0 100%;
+//     opacity: 0.3;    
+// }
+
 

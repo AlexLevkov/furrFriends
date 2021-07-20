@@ -1,6 +1,7 @@
 <template>
 	<section class="pet-preview">
 		<article class="pet-card" @click="showPetDetails(pet._id)">
+			<!-- <div class="flach"></div> -->
 			<div class="pet-likes-container">
 				<span class="pet-likes-cnt">{{ pet.likes }}</span>
 				<ToggleFavorite :pet="this.pet" />

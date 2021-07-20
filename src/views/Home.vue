@@ -7,8 +7,12 @@
       </div>
       <img src="../assets/images/hero.jpg" />
     </div>
+
+    <h2>Top liked pets</h2>
     <pet-list :pets="sortedByLikes" :isHomepage="true"></pet-list>
+    <h2>New on site</h2>
     <pet-list :pets="shelter1Pets" :isHomepage="true"></pet-list>
+    <h2>Long time in shelter</h2>
     <pet-list :pets="shelter2Pets" :isHomepage="true"></pet-list>
   </section>
 </template>
