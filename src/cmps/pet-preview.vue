@@ -60,7 +60,11 @@ export default {
 	},
 	computed: {
 		petImg() {
-			return this.pet.imgUrl[0];
+			if (this.pet.imgUrl) {
+				return this.pet.imgUrl[0];
+			} else {
+				return "cat-logo.gif";
+			}
 		},
 	},
 	methods: {
