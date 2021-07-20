@@ -1,168 +1,172 @@
 
 .pet-details-container{
-  display: flex;
-  flex-direction: row;
-  height: fit-content;
-}
-
-// pet info - bio and properties
-
-.pet-bio-contianer{
-  flex-basis: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between
-  
-}
-
-.pet-bio{
-  margin-top: 20px;
-  
-}
-
-//adoption button
-
-.pet-details-container {
-    button::before{
-      font-family:awesome;
-    //  content:"\f39e"
-    //  content:"\f1ae"
-    content:"\f1b0";
-    
-    }
-  }
-
-  .adopt-btn{
-      width: 80%;
-      align-self: center;
-      margin: 20px;
-  }
-
-
-// pet properties
-
-.pet-tag{
-  font-size: 20px;
-}
-
-.pet-properties{
-  display: flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-  //safe with childeren:
-  .pet-safe::before{
-    font-family:awesome;
-    content:"\f77c";
-  };//playfull:
-  .pet-playfull::before{
-    font-family:awesome;
-    content:"\f434";
-  };//vaccinated
-  .pet-vacinated::before{
-    font-family:awesome;
-    content:"\f48e";
-  };//age
-  .pet-age::before{
-    font-family:awesome;
-    content:"\f004";
-  };//gender - male
-  .pet-gender-male::before{
-    font-family:awesome;
-    content:"\f222";
-  };//gender - female
-  .pet-gender-female::before{
-    font-family:awesome;
-    content:"\f221";
-  };//tarining
-  .pet-trained::before{
-    font-family:awesome;
-    content:"\f0f3";
-    
-  };//birth-certificate
-  .pet-birth-certificate::before{
-    font-family:awesome;
-    content:"\f03a";
-  } //castrated
-  .pet-castrated::before{
-    font-family:awesome;
-    content:"\f02b";
-  }//weight
-  .pet-weight::before{
-    font-family:awesome;
-    content:"\f496";
-  }//cat
-  .pet-cat::before{
-    font-family:awesome;
-    content:"\f6be";
-  }//dog
-  .pet-dog::before{
-    font-family:awesome;
-    content:"\f6d3";
-  }
-}
-
-.flex-right{
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-}
-
-.flex-left{
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-}
-
-// pet gallery
+   display: flex;
+   gap:20px;
+   flex-direction: row;
+   height: fit-content;
+ }
  
-.pet-details-pic-grid {
-  flex-basis: 65%;
-    margin-top: 20px;
-    width: 100%;
-    // height: 500px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5,120px);
-    grid-template-areas:
-      'img-1 img-1 img-2 img-2 img-2'
-      'img-1 img-1 img-2 img-2 img-2'
-      'img-1 img-1 img-2 img-2 img-2'
-      'img-3 img-3 img-2 img-2 img-2'
-      'img-3 img-3 img-2 img-2 img-2';
-    grid-gap: 20px;
-  }
-  
-  .article-img-1 {
-    grid-area: img-1;
-  }
-  
-  .article-img-2 {
-    grid-area: img-2;
-  }
-  
-  .article-img-3 {
-    grid-area: img-3;
-  }
-
-  .img-details {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    
-  }
+ // pet info - bio and properties
  
-.img-1{
-    border-radius:25px 0 0 0;
-    // @include aspect-ratio(2, 3);
-}
-
-.img-2{
-    border-radius:0 25px 0 0;
-    // @include aspect-ratio(1, 1);
-}
-
-.img-3{
-    border-radius:0 0 25px 25px;
-    // @include aspect-ratio(5, 2);
-}
+ .pet-bio-contianer{
+   flex-basis: 35%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between
+   
+ }
+ 
+ .pet-bio{
+   margin-top: 20px;
+   text-align: justify;
+   text-justify: inter-word;
+   
+ }
+ 
+ //adoption button
+ 
+ .pet-details-container {
+     button::before{
+       font-family:awesome;
+     //  content:"\f39e"
+     //  content:"\f1ae"
+     content:"\f1b0";
+     
+     }
+   }
+ 
+   .adopt-btn{
+       width: 50%;
+       align-self: center;
+       margin: 20px;
+   }
+ 
+ 
+ // pet properties
+ 
+ .pet-tag{
+   font-size: 20px;
+ }
+ 
+ .pet-properties{
+   display: flex;
+   flex-direction: row;
+   flex-wrap:wrap;
+ }
+ 
+   //safe with childeren:
+   .pet-safe::before{
+     font-family:awesome;
+     content:"\f77c";
+   };//playfull:
+   .pet-playfull::before{
+     font-family:awesome;
+     content:"\f434";
+   };//vaccinated
+   .pet-vacinated::before{
+     font-family:awesome;
+     content:"\f48e";
+   };//age
+   .pet-age::before{
+     font-family:awesome;
+     content:"\f004";
+   };//gender - male
+   .pet-gender-male::before{
+     font-family:awesome;
+     content:"\f222";
+   };//gender - female
+   .pet-gender-female::before{
+     font-family:awesome;
+     content:"\f221";
+   };//tarining
+   .pet-trained::before{
+     font-family:awesome;
+     content:"\f0f3";
+     
+   };//birth-certificate
+   .pet-birth-certificate::before{
+     font-family:awesome;
+     content:"\f03a";
+   } //castrated
+   .pet-castrated::before{
+     font-family:awesome;
+     content:"\f02b";
+   }//weight
+   .pet-weight::before{
+     font-family:awesome;
+     content:"\f496";
+   }//cat
+   .pet-cat::before{
+     font-family:awesome;
+     content:"\f6be";
+   }//dog
+   .pet-dog::before{
+     font-family:awesome;
+     content:"\f6d3";
+   }
+ 
+ .flex-right{
+   display: flex;
+   flex-direction: column;
+   flex-basis: 50%;
+ }
+ 
+ .flex-left{
+   display: flex;
+   flex-direction: column;
+   flex-basis: 50%;
+ }
+ 
+ // pet gallery
+  
+ .pet-details-pic-grid {
+   flex-basis: 65%;
+     margin-top: 20px;
+     width: 100%;
+     // height: 500px;
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     grid-template-rows: repeat(5,120px);
+     grid-template-areas:
+       'img-1 img-1 img-2 img-2 img-2'
+       'img-1 img-1 img-2 img-2 img-2'
+       'img-1 img-1 img-2 img-2 img-2'
+       'img-3 img-3 img-2 img-2 img-2'
+       'img-3 img-3 img-2 img-2 img-2';
+     grid-gap: 20px;
+   }
+   
+   .article-img-1 {
+     grid-area: img-1;
+   }
+   
+   .article-img-2 {
+     grid-area: img-2;
+   }
+   
+   .article-img-3 {
+     grid-area: img-3;
+   }
+ 
+   .img-details {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center top;
+     
+   }
+  
+ .img-1{
+     border-radius:25px 0 0 0;
+     // @include aspect-ratio(2, 3);
+ }
+ 
+ .img-2{
+     border-radius:0 25px 25px 0;
+     // @include aspect-ratio(1, 1);
+ }
+ 
+ .img-3{
+     border-radius:0 0 0 25px;
+     // @include aspect-ratio(5, 2);
+ }

@@ -1,9 +1,10 @@
 <template>
 	<section class="pet-preview">
 		<article class="pet-card" @click="showPetDetails(pet._id)">
-			<!-- <div>❤</div> -->
-			<ToggleFavorite :likes="pet.likes" />
-			<span>{{pet.likes}}</span>		
+			<div class="pet-likes-container">
+				<span class="pet-likes-cnt">{{ pet.likes }}</span>
+				<ToggleFavorite :pet="this.pet" />
+			</div>
 
 			<div class="pet-card-img-container">
 				<img :src="require('@/assets/images/animal/' + petImg)" />
@@ -15,9 +16,23 @@
 					<button @click.stop="editPet">Edit</button>
 					<button @click.stop="removePet">Delete</button>
 				</div>
-				<button v-else @click.stop="goToUser(pet.owner._id)">
-					Owend By: {{ pet.owner.fullname }}
-				</button>
+				<div class="pet-card-user-area" v-else>
+					<button @click.stop="goToUser(pet.owner._id)">
+						{{ pet.owner.fullname }}
+					</button>
+				</div>
+
+				<div class="pet-card-info-extra">
+					<span
+						:class="{
+							'pet-gender-male pet-tag':
+								pet.gender === 'male',
+							'pet-gender-female pet-tag':
+								pet.gender === 'female',
+						}"
+					></span>
+					<span>{{ pet.age }} years old</span>
+				</div>
 			</div>
 		</article>
 	</section>
@@ -44,7 +59,7 @@ export default {
 		return {};
 	},
 	computed: {
-		petImg() {			
+		petImg() {
 			return this.pet.imgUrl[0];
 		},
 	},
