@@ -1,5 +1,28 @@
 // user-details
 
+.user-info-container{
+   display: flex;
+   gap: 5%;
+}
+
 .user-avatar{
     width: 150px;
+}
+
+.add-pet-form{
+   margin-top: 5px;
+   display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap:5px
+}
+
+.pet-label{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.pet-name{
+   width: 217px;
 }

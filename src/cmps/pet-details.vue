@@ -30,7 +30,7 @@
 			</div>
 			<div class="pet-bio-contianer">
 				<div class="pet-bio">
-					{{ pet.name }}'s bio:
+					<h2>{{ pet.name }}'s Story:</h2>
 					<p>{{ pet.bio }}</p>
 				</div>
 

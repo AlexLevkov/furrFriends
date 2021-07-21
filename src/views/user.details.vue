@@ -2,36 +2,84 @@
 	<section class="user-details main-layout min-height" v-if="user">
 		<div>
 			<h2>Hello {{ user.fullname }}</h2>
-			<img class="user-avatar" src="../assets/images/user.png" />
-			<h3>About</h3>
-			<p>
-				<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Libero asperiores quos cum nostrum fuga nulla delectus.
-				Tempore delectus, ad accusantium expedita exercitationem
-				repellendus. Nisi ad, obcaecati ipsa ipsum impedit
-				asperiores! -->
-			</p>
+			<div class="user-info-container">
+				<div class="user img">
+					<img
+						class="user-avatar"
+						src="../assets/images/user.png"
+					/>
+				</div>
+				<div class="user about">
+					<h2>About</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing
+						elit. Libero asperiores quos cum nostrum fuga
+						nulla delectus. Tempore delectus, ad accusantium
+						expedita exercitationem repellendus. Nisi ad,
+						obcaecati ipsa ipsum impedit asperiores!
+					</p>
+				</div>
+			</div>
+
+			<el-button
+				@click="toggleReview"
+				type="success"
+				round
+				v-if="loggedinUser._id !== user._id"
+				>Add Review</el-button
+			>
+			<el-button
+				@click="toggleForm"
+				type="success"
+				round
+				v-if="loggedinUser._id === user._id"
+				>Add Pet</el-button
+			>
 			<ul
 				v-if="
 					loggedinUserOrders.length &&
 					loggedinUser._id === user._id
 				"
 			>
-				<li>Adoption Request by {{ user.fullname }}</li>
+				<li>
+					<h2>My Adoption Requests:</h2>
+					<hr />
+				</li>
 				<li v-for="order in loggedinUserOrders" :key="order._id">
 					<!-- {{ order }} -->
-					<hr />
-					buyer name: {{ order.orderBy.fullname }} product
-					name:{{ order.orderFor.name }}
-					<button @click="removeOrder(order._id)">
-						Delete Request
-					</button>
-					<button @click="goToPet(order.orderFor._id)">
-						Visit Pet Page
-					</button>
-					<button @click="goToUser(order.orderOwner._id)">
+
+					<h4>Owner's Name: {{ order.orderOwner.fullname }}</h4>
+					<h4>Pet's Name: {{ order.orderFor.name }}</h4>
+
+					<el-button
+						@click="removeOrder(order._id)"
+						type="success"
+						round
+					>
+						Delete Request</el-button
+					>
+					<el-button
+						@click="removeOrder(order._id)"
+						type="success"
+						round
+					>
+						Delete Request</el-button
+					>
+
+					<el-button
+						@click="goToPet(order.orderFor._id)"
+						type="success"
+						round
+						>Visit Pet Page
+					</el-button>
+					<el-button
+						@click="goToUser(order.orderOwner._id)"
+						type="success"
+						round
+					>
 						Visit Owner Page
-					</button>
+					</el-button>
+					<hr />
 				</li>
 			</ul>
 			<ul
@@ -40,110 +88,179 @@
 					loggedinUser._id === user._id
 				"
 			>
-				<li><h3>Adoption Offers</h3></li>
+				<li><h2>Adoption Offers</h2></li>
 				<li v-for="order in loggedinUserPending" :key="order._id">
 					<hr />
-					requested by: {{ order.orderBy.fullname }}
+					Requested By: {{ order.orderBy.fullname }}
 					<br />
-					for: {{ order.orderFor.name }}
+					For: {{ order.orderFor.name }}
 					<br />
 
-					<button @click="approveOrder(order, order.orderBy)">
+					<el-button
+						@click="approveOrder(order, order.orderBy)"
+						type="success"
+						round
+					>
 						Approve Rquest
-					</button>
-					<button @click="removeOrder(order._id)">
+					</el-button>
+					<el-button
+						@click="removeOrder(order._id)"
+						type="success"
+						round
+					>
 						Delete Rquest
-					</button>
-					<button @click="goToPet(order.orderFor._id)">
+					</el-button>
+					<el-button
+						@click="goToPet(order.orderFor._id)"
+						type="success"
+						round
+					>
 						Visit Pet Page
-					</button>
-					<button @click="goToUser(order.orderBy._id)">
-						Visit {{ order.orderBy.fullname }} Page
-					</button>
+					</el-button>
+					<el-button
+						@click="goToUser(order.orderBy._id)"
+						type="success"
+						round
+					>
+						Visit {{ order.orderBy.fullname }}'s Page
+					</el-button>
 				</li>
 			</ul>
 
-			<button @click="toggleReview">Add Review</button>
-			<button @click="toggleForm">Add pet</button>
-			<form v-if="isReviewOpen" @submit.prevent="addreview">
-				<textarea
-					v-model="reviewText"
-					cols="30"
-					rows="10"
-				></textarea>
-				<button>Post</button>
-			</form>
-			<form v-if="isFormOpen" @submit.prevent="addPet">
+			<!-- <button @click="toggleReview">Add Review</button> -->
+			<!-- <button @click="toggleForm">Add Pet</button> -->
+
+			<form v-if="isReviewOpen" @submit.prevent="addReview">
 				<el-input
-					v-model="petToAdd.name"
-					placeholder="Pet's name"
-				></el-input>
-
-				<el-select
-					v-model="petToAdd.type"
-					placeholder="Select Pet Type"
+					type="textarea"
+					:autosize="{ minRows: 2, maxRows: 3 }"
+					placeholder="Please Enter Review"
+					v-model="reviewText"
 				>
-					<el-option :label="'Dog'" :value="'dog'"
-						>dog</el-option
-					>
-					<el-option :label="'Cat'" :value="'cat'"
-						>cat</el-option
-					>
-					<el-option :label="'Fish'" :value="'fish'"
-						>fish</el-option
-					>
-				</el-select>
+				</el-input>
 
-				<el-radio v-model="petToAdd.gender" label="male"></el-radio>
-
-				<el-radio
-					v-model="petToAdd.gender"
-					label="female"
-				></el-radio>
-
-				<input
-					v-model="petToAdd.age"
-					type="range"
-					id="age"
-					name="age"
-					min="0"
-					max="25"
-					step="0.2"
-				/>
-				<span id="sAge">{{ petToAdd.age }} years</span>
-
-				<select v-model="petToAdd.size">
-					<option value="small">Small</option>
-					<option value="medium">Medium</option>
-					<option value="large">Large</option>
-				</select>
-				<label>
-					Vaccinated
-					<input
-						type="checkbox"
-						v-model="petToAdd.isVaccinated"
-					/>
-				</label>
-				<label>
-					Safe With Children
-					<input
-						type="checkbox"
-						v-model="petToAdd.isSafeWithChild"
-					/>
-				</label>
-				<label>
-					Playfull
-					<input type="checkbox" v-model="petToAdd.isPlayfull" />
-				</label>
-				<select v-model="petToAdd.trainedLevel">
-					<option value="none">None</option>
-					<option value="basic">Basic</option>
-					<option value="advanced">Advanced</option>
-				</select>
-
-				<button>Save</button>
+				<el-button @click="addReview" type="success" round
+					>Post</el-button
+				>
 			</form>
-			<!-- <article
+			<form
+				class="add-pet-form"
+				v-if="isFormOpen"
+				@submit.prevent="addPet"
+			>
+				<label class="pet-label">
+					Name:
+					<el-input
+						class="pet-name"
+						v-model="petToAdd.name"
+						placeholder="Pet's name"
+					></el-input>
+				</label>
+
+				<label class="pet-label"
+					>Type:
+
+					<el-select
+						v-model="petToAdd.type"
+						placeholder="Select Pet Type"
+					>
+						<el-option :label="'Dog'" :value="'dog'"
+							>dog</el-option
+						>
+						<el-option :label="'Cat'" :value="'cat'"
+							>cat</el-option
+						>
+						<el-option :label="'Fish'" :value="'fish'"
+							>fish</el-option
+						>
+					</el-select>
+				</label>
+
+				<label class="pet-label"
+					>Size:
+
+					<el-select
+						v-model="petToAdd.size"
+						placeholder="Select Pet Size"
+					>
+						<el-option :label="'Small'" :value="'small'"
+							>Small</el-option
+						>
+						<el-option :label="'Medium'" :value="'medium'"
+							>Medium</el-option
+						>
+						<el-option :label="'Large'" :value="'large'"
+							>Large</el-option
+						>
+					</el-select>
+				</label>
+
+				<label class="pet-label"
+					>Training Level:
+					<el-select
+						v-model="petToAdd.trainedLevel"
+						placeholder="Select Pet Type"
+					>
+						<el-option :label="'None'" :value="'none'"
+							>None</el-option
+						>
+						<el-option :label="'Basic'" :value="'basic'"
+							>Basic</el-option
+						>
+						<el-option :label="'Advanced'" :value="'advanced'"
+							>Advanced</el-option
+						>
+					</el-select>
+				</label>
+
+				<label class="pet-label"
+					>Gender:
+					<el-radio
+						v-model="petToAdd.gender"
+						label="male"
+					></el-radio>
+
+					<el-radio
+						v-model="petToAdd.gender"
+						label="female"
+					></el-radio>
+				</label>
+
+				<label class="pet-label"
+					>Age:
+					<input
+						v-model="petToAdd.age"
+						type="range"
+						id="age"
+						name="age"
+						min="0"
+						max="20"
+						step="0.1"
+					/>
+					<span id="sAge">{{ petToAdd.age }} years</span>
+				</label>
+
+				<el-checkbox v-model="petToAdd.isVaccinated"
+					>Vaccinated</el-checkbox
+				>
+
+				<el-checkbox v-model="petToAdd.isSafeWithChild"
+					>Safe With Children</el-checkbox
+				>
+
+				<el-checkbox v-model="petToAdd.isPlayfull"
+					>Playfull</el-checkbox
+				>
+
+				<el-button @click="addPet" type="success" round
+					>Save</el-button
+				>
+			</form>
+			<h2>
+				Reviews
+				<hr />
+			</h2>
+			<article
 				class="user-reviews"
 				v-for="review in user.reviews"
 				:key="review.byUser"
@@ -151,7 +268,7 @@
 				<h3>Given by {{ review.byUser }}</h3>
 				<p>{{ review.text }}</p>
 				<hr />
-			</article> -->
+			</article>
 			<pet-list
 				@edit="editPet"
 				:isUserPre="isLoggedinUser"
@@ -238,7 +355,7 @@ export default {
 			this.toggleForm();
 			this.petToAdd = petToEdit;
 		},
-		addreview() {
+		addReview() {
 			const review = {
 				byUser: this.$store.getters.loggedinUser.fullname,
 				text: this.reviewText,

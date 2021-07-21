@@ -12,6 +12,7 @@
     font-family: title;      
     
     .logo{
+       font-size: 25px;
         margin-right: 20px;
         font-family: awesome ;  
         position: absolute;      
@@ -36,7 +37,7 @@
         text-align: center;
         line-height: 7vh;
         
-        font-size: 1rem;       
+        font-size: 20px;       
         // margin-left: 10px;
 
         // &:hover{               
@@ -45,7 +46,7 @@
         // }
     }
     button{       
-        font-size: 1rem;
+        font-size: 20px;
         // margin-right: 5px;   
         font-family: title;
         padding: 0;
