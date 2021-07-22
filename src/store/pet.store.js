@@ -83,11 +83,11 @@ export const petStore = {
     },
 
     shelter1Pets({ pets }) {
-      return pets.filter(pet => pet.owner._id === 'QRR8p')
+      return pets.filter(pet => pet.owner._id === '60f7e651c5e0152af5dc60e0')
     },
     
     shelter2Pets({ pets }) {
-      return pets.filter(pet => pet.owner._id === '2f323')
+      return pets.filter(pet => pet.owner._id === '60f7e651c5e0152af5dc60e1')
     },
 
     sortedByLikes({ pets }) {

@@ -1,4 +1,5 @@
 import { storageService } from './async-storage.service.js'
+import {httpService} from './http.service.js'
 
 export const petService = {
     query,
@@ -9,23 +10,28 @@ export const petService = {
 }
 
 function query() {
-    return storageService.query(`pet`)
+    // return storageService.query(`pet`)
+    return httpService.get(`pet`)
 }
 
 function remove(petId) {
-    return storageService.remove('pet', petId)
+    // return storageService.remove('pet', petId)
+    return httpService.delete(`pet/${petId}`)
 }
 
 function getById(petId) {
-    return storageService.get('pet', petId)
+    // return storageService.get('pet', petId)
+    return httpService.get(`pet/${petId}`)
 }
 
 
-function save(pet) {
+async function save(pet) {
     if (pet._id) {
-        return storageService.put('pet', pet)
+        // return storageService.put('pet', pet)
+        return pet = await httpService.put(`pet`, pet)
     } else {
-        return storageService.post('pet', pet)
+        // return storageService.post('pet', pet)
+        return pet = await httpService.post(`pet`, pet)
     }
 }
 
@@ -49,7 +55,7 @@ function getEmptyPet() {
     }
 }
 
-_craeteTestData()
+// _craeteTestData()
 
 function _craeteTestData() {
     const pets = [
