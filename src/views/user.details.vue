@@ -57,14 +57,7 @@
 						round
 					>
 						Delete Request</el-button
-					>
-					<el-button
-						@click="removeOrder(order._id)"
-						type="success"
-						round
-					>
-						Delete Request</el-button
-					>
+					>					
 
 					<el-button
 						@click="goToPet(order.orderFor._id)"
@@ -328,7 +321,7 @@ export default {
 		};
 	},
 	computed: {
-		usersPets() {
+		usersPets() {			
 			return this.$store.getters.petsToShow.filter(
 				(pet) => pet.owner._id === this.user._id
 			);

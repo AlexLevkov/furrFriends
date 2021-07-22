@@ -172,8 +172,8 @@ export default {
 		adoptPet() {
 			if (this.loggedinUser) {
 				const order = {
-					orderBy: this.loggedinUser, //._id,
-					orderFor: this.pet, //._id,
+					orderBy: this.loggedinUser, 
+					orderFor: this.pet, 
 					orderOwner: this.pet.owner,
 					created: Date.now(),
 				};
