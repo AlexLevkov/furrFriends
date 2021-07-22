@@ -4,8 +4,8 @@
       <li v-for="pet in pets" :key="pet._id">
         <pet-preview @edit="edit" :isUserPre="isUserPre" :pet="pet"></pet-preview>
       </li>
-    <button class="see-more" v-if="isHomepage" @click="goToOwnersPets">See more...</button>
     </ul>
+    <button class="see-more" v-if="isHomepage" @click="goToOwnersPets">See more...</button>
   </section>
 </template>
 

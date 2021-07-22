@@ -34,14 +34,7 @@
 					<p>{{ pet.bio }}</p>
 				</div>
 
-				<el-button
-					@click="adoptPet"
-					class="adopt-btn"
-					type="success"
-					round
-				>
-					Adopt Now!</el-button
-				>
+				
 
 				<div class="pet-properties">
 					<div class="flex-left">
@@ -52,11 +45,9 @@
 							}"
 							v-show="pet.isVaccinated"
 						>
-							recvied vaccines</span
-						>
+							recvied vaccines</span>
 						<span class="pet-trained pet-tag">
-							training: {{ pet.trainedLevel }}</span
-						>
+							training: {{ pet.trainedLevel }}</span>
 
 						<span
 							:class="{
@@ -64,17 +55,14 @@
 							}"
 							v-show="pet.isSafeWithChild"
 						>
-							safe with children</span
-						>
+							safe with children</span>
 						<span
 							:class="{
 								'pet-castrated pet-tag':
 									pet.isCastrated,
 							}"
-							v-show="pet.isCastrated"
-						>
-							castrated</span
-						>
+							v-show="pet.isCastrated">
+							castrated</span>
 						<span
 							:class="{
 								'pet-birth-certificate pet-tag':
@@ -98,11 +86,9 @@
 							{{ pet.breed }}</span
 						>
 						<span class="pet-age pet-tag">
-							{{ pet.age }} yeras old</span
-						>
+							{{ pet.age }} yeras old</span>
 						<span class="pet-weight pet-tag">
-							size: {{ pet.size }}</span
-						>
+							size: {{ pet.size }}</span>
 
 						<span
 							:class="{
@@ -112,18 +98,22 @@
 									pet.gender === 'female',
 							}"
 						>
-							{{ pet.gender }}</span
-						>
+							{{ pet.gender }}</span>
 						<span
 							:class="{
 								'pet-playfull pet-tag': pet.isPlayfull,
 							}"
-							v-show="pet.isPlayfull"
-						>
-							playfull</span
-						>
+							v-show="pet.isPlayfull">
+							playfull</span>
 					</div>
 				</div>
+				<el-button
+					@click="adoptPet"
+					class="adopt-btn"
+					type="success"
+					round>
+					Adopt Now!
+				</el-button>
 			</div>
 		</div>
 	</section>
