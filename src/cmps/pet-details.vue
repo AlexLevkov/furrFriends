@@ -34,14 +34,6 @@
 					<p>{{ pet.bio }}</p>
 				</div>
 
-				<el-button
-					@click="adoptPet"
-					class="adopt-btn"
-					type="success"
-					round
-				>
-					Adopt Now!</el-button>
-
 				<div class="pet-properties">
 					<div class="flex-left">
 						<span
@@ -123,6 +115,14 @@
 						>
 					</div>
 				</div>
+				<el-button
+					@click="adoptPet"
+					class="adopt-btn"
+					type="success"
+					round
+				>
+					Adopt Now!
+				</el-button>
 			</div>
 		</div>
 	</section>

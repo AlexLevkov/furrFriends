@@ -1,11 +1,14 @@
 <template>
   <section class="app-home main-layout min-height">
-    <div class="hero">
+    <div class="hero full">
       <div class="slogan">
-        <h2>Adoption makes at least</h2>
-        <h2>two lives happier</h2>
+        <h2>Adoption makes at least 
+          <br />
+          <span> two lives happier </span>
+        </h2>
+        
       </div>
-      <img src="../assets/images/hero.jpg" />
+      <!-- <img src="../assets/images/hero.jpg" /> -->
     </div>
 
     <h2>Top liked pets</h2>

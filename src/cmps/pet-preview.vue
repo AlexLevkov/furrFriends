@@ -1,9 +1,7 @@
 <template>
 	<section class="pet-preview">
-		<article class="pet-card" @click="showPetDetails(pet._id)">
-			<!-- <div class="flach"></div> -->
-			<div class="pet-likes-container">
-				<span class="pet-likes-cnt">{{ pet.likes }}</span>
+		<article class="pet-card" @click="showPetDetails(pet._id)">			
+			<div class="pet-likes-container">				
 				<ToggleFavorite :pet="this.pet" />
 			</div>
 
@@ -33,6 +31,7 @@
 						}"
 					></span>
 					<span>{{ pet.age }} years old</span>
+					<span class="pet-likes-cnt">{{ pet.likes }} <br /> Likes</span>
 				</div>
 			</div>
 		</article>
