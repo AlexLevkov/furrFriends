@@ -146,7 +146,7 @@
 
 			<div
 				:class="{
-					'pet-form-modal': true,
+					'pet-form-container': true,
 					'modal-close': !isFormOpen,
 				}"
 			>
@@ -358,8 +358,8 @@ export default {
 	methods: {
 		toggleForm() {
 			this.isFormOpen = !this.isFormOpen;
-			if (this.isFormOpen)
-				this.$store.commit({ type: "toggleUserModal" });
+			// if (this.isFormOpen)
+				// this.$store.commit({ type: "toggleUserModal" });
 		},
 		toggleReview() {
 			this.isReviewOpen = !this.isReviewOpen;
@@ -374,7 +374,7 @@ export default {
 				this.petToAdd = petService.getEmptyPet();
 				this.toggleForm();
 			});
-			this.$store.commit({ type: "toggleUserModal" });
+			// this.$store.commit({ type: "toggleUserModal" });
 		},
 		editPet(petToEdit) {
 			this.toggleForm();
@@ -430,7 +430,7 @@ export default {
 		},
 		closeModal() {
 			this.isFormOpen = !this.isFormOpen;
-			this.$store.commit({ type: "toggleUserModal" });
+			// this.$store.commit({ type: "toggleUserModal" });
 		},
 	},
 
