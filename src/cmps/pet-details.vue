@@ -40,8 +40,7 @@
 					type="success"
 					round
 				>
-					Adopt Now!</el-button
-				>
+					Adopt Now!</el-button>
 
 				<div class="pet-properties">
 					<div class="flex-left">

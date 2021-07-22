@@ -143,119 +143,141 @@
 					>Post</el-button
 				>
 			</form>
-			<form
-				class="add-pet-form"
-				v-if="isFormOpen"
-				@submit.prevent="addPet"
+
+			<div
+				:class="{
+					'pet-form-modal': true,
+					'modal-close': !isFormOpen,
+				}"
 			>
-				<label class="pet-label">
-					Name:
-					<el-input
-						class="pet-name"
-						v-model="petToAdd.name"
-						placeholder="Pet's name"
-					></el-input>
-				</label>
+				<form
+					class="add-pet-form"
+					v-if="isFormOpen"
+					@submit.prevent="addPet"
+				>
+					<div>
+						<label class="pet-label">
+							Name:
+							<el-input
+								class="pet-name"
+								v-model="petToAdd.name"
+								placeholder="Pet's name"
+							></el-input>
+						</label>
+					</div>
 
-				<label class="pet-label"
-					>Type:
+					<label class="pet-label"
+						>Type:
 
-					<el-select
-						v-model="petToAdd.type"
-						placeholder="Select Pet Type"
+						<el-select
+							v-model="petToAdd.type"
+							placeholder="Select Pet Type"
+						>
+							<el-option :label="'Dog'" :value="'dog'"
+								>dog</el-option
+							>
+							<el-option :label="'Cat'" :value="'cat'"
+								>cat</el-option
+							>
+							<el-option :label="'Fish'" :value="'fish'"
+								>fish</el-option
+							>
+						</el-select>
+					</label>
+
+					<label class="pet-label"
+						>Size:
+
+						<el-select
+							v-model="petToAdd.size"
+							placeholder="Select Pet Size"
+						>
+							<el-option :label="'Small'" :value="'small'"
+								>Small</el-option
+							>
+							<el-option
+								:label="'Medium'"
+								:value="'medium'"
+								>Medium</el-option
+							>
+							<el-option :label="'Large'" :value="'large'"
+								>Large</el-option
+							>
+						</el-select>
+					</label>
+
+					<label class="pet-label"
+						>Training Level:
+						<el-select
+							v-model="petToAdd.trainedLevel"
+							placeholder="Select Pet Type"
+						>
+							<el-option :label="'None'" :value="'none'"
+								>None</el-option
+							>
+							<el-option :label="'Basic'" :value="'basic'"
+								>Basic</el-option
+							>
+							<el-option
+								:label="'Advanced'"
+								:value="'advanced'"
+								>Advanced</el-option
+							>
+						</el-select>
+					</label>
+
+					<label class="pet-label"
+						>Gender:
+						<el-radio
+							v-model="petToAdd.gender"
+							label="male"
+						></el-radio>
+
+						<el-radio
+							v-model="petToAdd.gender"
+							label="female"
+						></el-radio>
+					</label>
+
+					<label class="pet-label"
+						>Age:
+						<input
+							v-model="petToAdd.age"
+							type="range"
+							id="age"
+							name="age"
+							min="0"
+							max="20"
+							step="0.1"
+						/>
+						<span id="sAge">{{ petToAdd.age }} years</span>
+					</label>
+
+					<el-checkbox v-model="petToAdd.isVaccinated"
+						>Vaccinated</el-checkbox
 					>
-						<el-option :label="'Dog'" :value="'dog'"
-							>dog</el-option
-						>
-						<el-option :label="'Cat'" :value="'cat'"
-							>cat</el-option
-						>
-						<el-option :label="'Fish'" :value="'fish'"
-							>fish</el-option
-						>
-					</el-select>
-				</label>
 
-				<label class="pet-label"
-					>Size:
-
-					<el-select
-						v-model="petToAdd.size"
-						placeholder="Select Pet Size"
+					<el-checkbox v-model="petToAdd.isSafeWithChild"
+						>Safe With Children</el-checkbox
 					>
-						<el-option :label="'Small'" :value="'small'"
-							>Small</el-option
-						>
-						<el-option :label="'Medium'" :value="'medium'"
-							>Medium</el-option
-						>
-						<el-option :label="'Large'" :value="'large'"
-							>Large</el-option
-						>
-					</el-select>
-				</label>
 
-				<label class="pet-label"
-					>Training Level:
-					<el-select
-						v-model="petToAdd.trainedLevel"
-						placeholder="Select Pet Type"
+					<el-checkbox v-model="petToAdd.isPlayfull"
+						>Playfull</el-checkbox
 					>
-						<el-option :label="'None'" :value="'none'"
-							>None</el-option
-						>
-						<el-option :label="'Basic'" :value="'basic'"
-							>Basic</el-option
-						>
-						<el-option :label="'Advanced'" :value="'advanced'"
-							>Advanced</el-option
-						>
-					</el-select>
-				</label>
 
-				<label class="pet-label"
-					>Gender:
-					<el-radio
-						v-model="petToAdd.gender"
-						label="male"
-					></el-radio>
+					<el-button @click="addPet" type="success" round
+						>Save</el-button
+					>
+					<el-button
+						class="close-modal-btn"
+						@click="closeModal"
+						type="info"
+						circle
+						>X</el-button
+					>
+				</form>
+			</div>
 
-					<el-radio
-						v-model="petToAdd.gender"
-						label="female"
-					></el-radio>
-				</label>
-
-				<label class="pet-label"
-					>Age:
-					<input
-						v-model="petToAdd.age"
-						type="range"
-						id="age"
-						name="age"
-						min="0"
-						max="20"
-						step="0.1"
-					/>
-					<span id="sAge">{{ petToAdd.age }} years</span>
-				</label>
-
-				<el-checkbox v-model="petToAdd.isVaccinated"
-					>Vaccinated</el-checkbox
-				>
-
-				<el-checkbox v-model="petToAdd.isSafeWithChild"
-					>Safe With Children</el-checkbox
-				>
-
-				<el-checkbox v-model="petToAdd.isPlayfull"
-					>Playfull</el-checkbox
-				>
-
-				<el-button @click="addPet" type="success" round
-					>Save</el-button
-				>
-			</form>
 			<h2>
 				Reviews
 				<hr />
@@ -336,6 +358,8 @@ export default {
 	methods: {
 		toggleForm() {
 			this.isFormOpen = !this.isFormOpen;
+			if (this.isFormOpen)
+				this.$store.commit({ type: "toggleUserModal" });
 		},
 		toggleReview() {
 			this.isReviewOpen = !this.isReviewOpen;
@@ -350,6 +374,7 @@ export default {
 				this.petToAdd = petService.getEmptyPet();
 				this.toggleForm();
 			});
+			this.$store.commit({ type: "toggleUserModal" });
 		},
 		editPet(petToEdit) {
 			this.toggleForm();
@@ -402,6 +427,10 @@ export default {
 		// },
 		goToUser(userId) {
 			this.$router.push(`/user/${userId}`);
+		},
+		closeModal() {
+			this.isFormOpen = !this.isFormOpen;
+			this.$store.commit({ type: "toggleUserModal" });
 		},
 	},
 

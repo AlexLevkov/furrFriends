@@ -13,7 +13,7 @@
    margin-top: 5px;
    display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 90%;
     gap:5px
 }
 
@@ -26,3 +26,46 @@
 .pet-name{
    width: 217px;
 }
+
+.pet-form-modal{
+   height: 65%;
+   width: 35%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 8px;
+   background-color: whitesmoke;
+   margin: 0 auto;
+   position: fixed;
+   z-index: 1;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.modal-close{
+   display: none;
+}
+
+.close-modal-btn{
+   position: absolute;
+   right:1%;
+   top:1%;
+   padding: 10px;
+   border-radius: 50%;
+}
+
+// .pet-form-modal{
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//    border-radius: 8px;
+//  
+//    background-color: whitesmoke;
+//    margin: 0 auto;
+//    position: fixed;
+//    bottom: 10%;
+//    left: 30%;
+//    z-index: 1;
+// }
+
