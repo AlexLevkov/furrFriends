@@ -6,17 +6,16 @@
 				<div class="user img">
 					<img
 						class="user-avatar"
-						src="../assets/images/user.png"
+						:src="
+							require('@/assets/images/user/' +
+								user.avatar)
+						"
 					/>
 				</div>
 				<div class="user about">
 					<h2>About</h2>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Libero asperiores quos cum nostrum fuga
-						nulla delectus. Tempore delectus, ad accusantium
-						expedita exercitationem repellendus. Nisi ad,
-						obcaecati ipsa ipsum impedit asperiores!
+						{{ user.about }}
 					</p>
 				</div>
 			</div>
@@ -47,9 +46,9 @@
 				</li>
 				<li v-for="order in loggedinUserOrders" :key="order._id">
 					<!-- {{ order }} -->
-
-					<h4>Owner's Name: {{ order.orderOwner.fullname }}</h4>
-					<h4>Pet's Name: {{ order.orderFor.name }}</h4>
+					{{ new Date(order.created).toLocaleString() }}
+					<p>Owner's Name: {{ order.orderOwner.fullname }}</p>
+					<p>Pet's Name: {{ order.orderFor.name }}</p>
 
 					<el-button
 						@click="removeOrder(order._id)"
@@ -57,7 +56,7 @@
 						round
 					>
 						Delete Request</el-button
-					>					
+					>
 
 					<el-button
 						@click="goToPet(order.orderFor._id)"
@@ -84,6 +83,7 @@
 				<li><h2>Adoption Offers</h2></li>
 				<li v-for="order in loggedinUserPending" :key="order._id">
 					<hr />
+					{{ new Date(order.created).toLocaleString() }}
 					Requested By: {{ order.orderBy.fullname }}
 					<br />
 					For: {{ order.orderFor.name }}
@@ -149,6 +149,7 @@
 					@submit.prevent="addPet"
 				>
 					<div>
+						<h2>Please Add Your Pet's Details</h2>
 						<label class="pet-label">
 							Name:
 							<el-input
@@ -219,7 +220,7 @@
 						</el-select>
 					</label>
 
-					<label class="pet-label"
+					<label class="pet-label pet-box"
 						>Gender:
 						<el-radio
 							v-model="petToAdd.gender"
@@ -232,7 +233,7 @@
 						></el-radio>
 					</label>
 
-					<label class="pet-label"
+					<label class="pet-label pet-box"
 						>Age:
 						<input
 							v-model="petToAdd.age"
@@ -246,19 +247,29 @@
 						<span id="sAge">{{ petToAdd.age }} years</span>
 					</label>
 
-					<el-checkbox v-model="petToAdd.isVaccinated"
+					<el-checkbox
+						class="pet-box"
+						v-model="petToAdd.isVaccinated"
 						>Vaccinated</el-checkbox
 					>
 
-					<el-checkbox v-model="petToAdd.isSafeWithChild"
+					<el-checkbox
+						class="pet-box"
+						v-model="petToAdd.isSafeWithChild"
 						>Safe With Children</el-checkbox
 					>
 
-					<el-checkbox v-model="petToAdd.isPlayfull"
+					<el-checkbox
+						class="pet-box"
+						v-model="petToAdd.isPlayfull"
 						>Playfull</el-checkbox
 					>
 
-					<el-button @click="addPet" type="success" round
+					<el-button
+						@click="addPet"
+						type="success"
+						round
+						class="save-btn"
 						>Save</el-button
 					>
 					<el-button
@@ -321,7 +332,7 @@ export default {
 		};
 	},
 	computed: {
-		usersPets() {			
+		usersPets() {
 			return this.$store.getters.petsToShow.filter(
 				(pet) => pet.owner._id === this.user._id
 			);
@@ -342,6 +353,7 @@ export default {
 				(order) => order.orderOwner._id === this.user._id
 			);
 		},
+      
 		// orders() {
 		//   console.log('orders:', this.$store.getters.orders)
 		//   return this.$store.getters.orders;
@@ -352,7 +364,7 @@ export default {
 		toggleForm() {
 			this.isFormOpen = !this.isFormOpen;
 			// if (this.isFormOpen)
-				// this.$store.commit({ type: "toggleUserModal" });
+			// this.$store.commit({ type: "toggleUserModal" });
 		},
 		toggleReview() {
 			this.isReviewOpen = !this.isReviewOpen;

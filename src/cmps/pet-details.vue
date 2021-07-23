@@ -33,6 +33,9 @@
 					<h2>{{ pet.name }}'s Story:</h2>
 					<p>{{ pet.bio }}</p>
 				</div>
+				<div class="pet-details-likes">
+					🧡 Liked by {{ pet.likes }} Users 🧡
+				</div>
 
 				<div class="pet-properties">
 					<div class="flex-left">
@@ -115,6 +118,7 @@
 						>
 					</div>
 				</div>
+
 				<el-button
 					@click="adoptPet"
 					class="adopt-btn"
@@ -123,6 +127,14 @@
 				>
 					Adopt Now!
 				</el-button>
+
+				<el-button
+					class="pet-visit-owner-btn"
+					@click="showOwner"
+					type="info"
+					round
+					>Visit Owner</el-button
+				>
 			</div>
 		</div>
 	</section>
@@ -172,18 +184,31 @@ export default {
 		adoptPet() {
 			if (this.loggedinUser) {
 				const order = {
-					orderBy: this.loggedinUser, 
-					orderFor: this.pet, 
+					orderBy: this.loggedinUser,
+					orderFor: this.pet,
 					orderOwner: this.pet.owner,
 					created: Date.now(),
 				};
 				this.$store
 					.dispatch({ type: "saveOrder", orderToSave: order })
-					.then(console.log);
+					.then(console.log)
+					.then(() => {
+						this.$message({
+							message: "Congrats, your request has been sent",
+							type: "success",
+						});
+					});
 			} else {
 				this.$store.commit({ type: "toggleUserModal" });
 			}
 		},
+      showOwner(){
+         	this.$router.push({
+				name: "user-details",
+				params: { userId: this.pet.owner._id },
+			});
+
+      }
 	},
 };
 </script>

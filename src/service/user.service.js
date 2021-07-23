@@ -1,5 +1,5 @@
 import { storageService } from './async-storage.service.js'
-import {httpService} from './http.service.js'
+import { httpService } from './http.service.js'
 
 export const userService = {
    login,
@@ -23,7 +23,7 @@ function getUsers() {
 
 function getById(userId) {
    // return storageService.get('user', userId)
-   return httpService.get(`user/${userId}`)   
+   return httpService.get(`user/${userId}`)
 }
 
 function remove(userId) {
@@ -42,7 +42,7 @@ async function login(userCred) {
    // const user = users.find(user => user.username === userCred.username)
    // return _saveLocalUser(user)
    const user = await httpService.post('auth/login', userCred)
-    if (user) return _saveLocalUser(user)
+   if (user) return _saveLocalUser(user)
 }
 async function logout() {
    sessionStorage.clear()
@@ -62,7 +62,7 @@ function getLoggedinUser() {
 async function addReview(user, review) {
    if (!user.reviews) user.reviews = []
    user.reviews.unshift(review)
-   await storageService.put('user', user)
+   await httpService.put('user', user)
    return user
 }
 
