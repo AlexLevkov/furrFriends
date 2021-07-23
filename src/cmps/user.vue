@@ -1,7 +1,18 @@
 <template>
 	<section class="user-main main-layout">
-		<div class="user-form-container">
-			<el-button @click="closeModal()" type="info" circle>X</el-button>
+		<div
+			:class="{
+				'user-form-container': true,
+				'loggedin-modal': loggedinUser,
+			}"
+		>
+			<el-button
+				class="close-modal-btn"
+				@click="closeModal()"
+				type="info"
+				circle
+				>X</el-button
+			>
 			<form
 				class="signup-form"
 				@submit.prevent="signup()"
@@ -50,7 +61,19 @@
 				>
 			</form>
 
-			<div v-if="loggedinUser">
+			<div v-if="loggedinUser" class="loggedin-modal-btns">
+				<h1 class="user-name-avatar">
+					{{ loggedinUser.fullname }}
+				</h1>
+
+				<el-button
+					class="modal-manage"
+					@click="manageAcount"
+					type="info"
+					round
+					>Manage Your Acount</el-button
+				>
+
 				<el-button
 					class="modal-logout"
 					@click="logout"
@@ -58,7 +81,6 @@
 					round
 					>Logout</el-button
 				>
-				<h1>{{ loggedinUser.fullname }}</h1>
 			</div>
 		</div>
 	</section>
@@ -127,6 +149,13 @@ export default {
 		},
 		closeModal() {
 			this.$store.commit({ type: "toggleUserModal" });
+		},
+		manageAcount() {
+			this.closeModal();
+			this.$router.push({
+				name: "user-details",
+				params: { userId: this.loggedinUser._id },
+			});
 		},
 	},
 };

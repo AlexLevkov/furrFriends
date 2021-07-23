@@ -1,7 +1,7 @@
 <template>
 	<section class="pet-preview">
-		<article class="pet-card" @click="showPetDetails(pet._id)">			
-			<div class="pet-likes-container">				
+		<article class="pet-card" @click="showPetDetails(pet._id)">
+			<div class="pet-likes-container">
 				<ToggleFavorite :pet="this.pet" />
 			</div>
 
@@ -10,18 +10,17 @@
 			</div>
 
 			<div class="pet-card-info">
-				<h3>{{ pet.name }}</h3>
+				<h2>
+					{{ pet.name }}
+
+					<!-- <span>{{ pet.age }} years old</span> -->
+				</h2>
 				<div v-if="isUserPre">
 					<button @click.stop="editPet">Edit</button>
 					<button @click.stop="removePet">Delete</button>
 				</div>
-				<div class="pet-card-user-area" v-else>
-					<button @click.stop="goToUser(pet.owner._id)">
-						{{ pet.owner.fullname }}
-					</button>
-				</div>
-
-				<div class="pet-card-info-extra">
+				<div class="pet-card-age-gender" v-else>
+					<span>{{ pet.age }} y.o.</span>
 					<span
 						:class="{
 							'pet-gender-male pet-tag':
@@ -30,8 +29,18 @@
 								pet.gender === 'female',
 						}"
 					></span>
-					<span>{{ pet.age }} years old</span>
-					<span class="pet-likes-cnt">{{ pet.likes }} <br /> Likes</span>
+					<!-- <button @click.stop="goToUser(pet.owner._id)">
+						{{ pet.owner.fullname }}
+					</button> -->
+				</div>
+
+				<div class="pet-card-info-extra">
+					<button @click.stop="goToUser(pet.owner._id)">
+						{{ pet.owner.fullname }}
+					</button>
+					<span class="pet-likes-cnt"
+						>{{ pet.likes }} Likes</span
+					>
 				</div>
 			</div>
 		</article>

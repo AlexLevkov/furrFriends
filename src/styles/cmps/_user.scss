@@ -1,3 +1,7 @@
+.close-modal-btn{
+   margin-left: 90%;
+}
+
 
 .user-modal{
     height: 100vh;
@@ -5,6 +9,8 @@
     position: fixed;
 
 }
+
+
 .user-main{
     text-align: center;
     width: 100%;
@@ -40,8 +46,29 @@
 }
 
 .modal-logout{
-    margin: 0 auto;
-    position: absolute;
-    bottom: 10%;
-    left: 40%;
+//     margin: 0 auto;
+//     position: absolute;
+//     bottom: 10%;
+//     left: 40%;
+}
+
+.modal-manage{
+   // margin: 0 auto;
+   // position: absolute;
+   // bottom: 30%;
+   // left: 40%;
+}
+
+.loggedin-modal-btns{
+   display: flex;
+   flex-direction: column;
+   width: 70%;
+   margin: 15% auto;
+   gap: 15px;
+
+}
+
+.loggedin-modal{
+   height: 35%;
+   // width: 25%;
 }

@@ -123,6 +123,7 @@ $icon-border-color: hsl(0, 0%, 10%);
 	&__icon {
 		height: 2.2em;
 		width: 2.2em;
+		margin: 5px;
 
 		// Transition mainly for when un-favoriting
 		transition: fill-opacity 0.2s, stroke 0.2s;

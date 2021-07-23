@@ -15,17 +15,13 @@
 				<router-link to="/about">About</router-link>
 
 				<div class="user-login" v-if="!loggedinUser">
-					<button @click="openUserModal()">Signup</button>
-					<button @click="openUserModal()">Login</button>
+					<button @click="openUserModal()">Login/Signup</button>
 				</div>
 
-				<div class="user-login" v-else>
-					<router-link
-						class="user-name-avatar"
-						:to="'/user/' + loggedinUser._id"
-						>{{ loggedinUser.fullname }}</router-link
-					>
-					<button @click="openUserModal()">Logout</button>
+				<div class="user-login" @click="openUserModal()" v-else>
+					<button class="user-name-avatar">
+						{{ loggedinUser.fullname }}
+					</button>
 				</div>
 			</div>
 		</div>

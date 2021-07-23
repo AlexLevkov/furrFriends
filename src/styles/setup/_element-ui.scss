@@ -40,11 +40,12 @@
 
   .el-button.is-circle{
       margin-top: 5px;
+      padding:5px
   }
 
 
   .el-button--info{
-      margin-left: 90%;
+      // margin-left: 90%;
   }
 
   .el-select .el-input.is-focus .el-input__inner {
@@ -70,3 +71,7 @@ margin: 10px;
    background:$clr3 ;
 }
 // $clr3
+
+.el-button+.el-button{
+   margin: 0;
+}

@@ -68,13 +68,31 @@
    display: flex;
    align-items: center;
    justify-content: space-around;
+   font-weight: bolder;
+   button{
+      align-self: flex-end
+   }
 }
 
-.pet-card-user-area{
+
+
+.pet-card-age-gender{
+   font-weight: bolder;
    display: flex;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
    height: 40px;
+   span{
+      font-size: 20px;
+   };
+   .pet-gender-male::before{
+      font-size: 30px;
+      color: #2196f3;
+   }
+   .pet-gender-female::before{
+      font-size: 30px;
+      color: #ea7085;
+   }
 }
 
 .pet-likes-container {
