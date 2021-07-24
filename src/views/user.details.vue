@@ -215,12 +215,8 @@
         <p>{{ review.text }}</p>
         <hr />
       </article>
-      <pet-list
-        @edit="editPet"
-        :isUserPre="isLoggedinUser"
-        :pets="usersPets"
-      ></pet-list>
-    </div>
+      <pet-list @edit="editPet" :isUserPre="isLoggedinUser" :pets="usersPets" />
+    </div>    
   </section>
 </template>
 
@@ -243,10 +239,10 @@ export default {
     this.petToAdd = petService.getEmptyPet();
     this.$store.dispatch({ type: "loadOrders" });
 
-	socketService.on('newOrder', order =>{
-		this.getOrders()
-		console.log('order:', order)
-	});
+    socketService.on("newOrder", (order) => {
+      this.getOrders();
+      console.log("order:", order);
+    });
   },
   data() {
     return {
@@ -330,9 +326,9 @@ export default {
     removeOrder(orderId) {
       this.$store.dispatch({ type: "removeOrder", orderId });
     },
-    approveOrder(order, newOwner) {		
+    approveOrder(order, newOwner) {
       let petToAdd = order.orderFor;
-      petToAdd.owner = newOwner;      
+      petToAdd.owner = newOwner;
       this.$store
         .dispatch({
           type: "savePet",
@@ -360,9 +356,9 @@ export default {
       this.isFormOpen = !this.isFormOpen;
       // this.$store.commit({ type: "toggleUserModal" });
     },
-	getOrders(){		
-		this.$store.dispatch({type:'loadOrders'})
-	}
+    getOrders() {
+      this.$store.dispatch({ type: "loadOrders" });
+    },
   },
 
   watch: {

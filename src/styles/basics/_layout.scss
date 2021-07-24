@@ -13,3 +13,12 @@
         grid-column: 1 / -1;
     }
 }
+
+@media screen and (max-width: 600px){
+    .main-layout{
+        grid-template-columns: 
+        minmax(1rem, 1fr) 
+        minmax(auto, 500px) 
+        minmax(1rem, 1fr);
+    }
+}

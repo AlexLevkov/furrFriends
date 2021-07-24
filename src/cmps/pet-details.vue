@@ -129,6 +129,7 @@ export default {
   props: {},
   created() {
     this.getPet();
+    window.scrollTo(0, 0);
   },
   data() {
     return {
@@ -158,7 +159,7 @@ export default {
         let petId = this.petId;
         let pet = await petService.getById(petId);
         this.pet = pet;
-      } catch {
+      } catch (err) {
         console.log(err);
       }
     },
@@ -175,9 +176,9 @@ export default {
           .then((savedOrder) => {
             this.$message({
               message: "Congrats, your request has been sent",
-              type: "success",			  
-            });			
-			socketService.emit('orderAdded', savedOrder)
+              type: "success",
+            });
+            socketService.emit("orderAdded", savedOrder);
           });
       } else {
         this.$store.commit({ type: "toggleUserModal" });

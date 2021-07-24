@@ -7,7 +7,8 @@ export const petStore = {
       filterBy: {
          ownerId: 'all',
          type: 'all',
-         gender: 'all'
+         gender: 'all',
+         size:'all'
       }
    },
    mutations: {

@@ -80,3 +80,12 @@
    width:30%;
    align-self: center;
 }
+
+@media screen and (max-width: 600px){
+   .user-info-container{
+      flex-direction: column;
+   }
+   .user-avatar{
+      width: 100%;      
+  }
+}
