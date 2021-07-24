@@ -51,6 +51,7 @@ export const orderStore = {
          try {
             const savedOrder = await orderService.save(payload.orderToSave)
             commit({ type: 'saveOrder', orderToSave: savedOrder })
+            return savedOrder
          } catch (err) {
             console.log('OrderStore: Cant save order', err)
             throw err

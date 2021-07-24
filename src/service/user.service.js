@@ -1,5 +1,8 @@
 import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
+import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
+
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
 export const userService = {
    login,
@@ -42,16 +45,19 @@ async function login(userCred) {
    // const user = users.find(user => user.username === userCred.username)
    // return _saveLocalUser(user)
    const user = await httpService.post('auth/login', userCred)
+   socketService.emit('login', user._id);
    if (user) return _saveLocalUser(user)
 }
 async function logout() {
    sessionStorage.clear()
+   socketService.emit('unset-user-socket');
    return await httpService.post('auth/logout')
 }
 
 async function signup(userCred) {
    // const user = await storageService.post('user', userCred)
    const user = await httpService.post('auth/signup', userCred)
+   socketService.emit('set-user-socket', user._id);
    return _saveLocalUser(user)
 }
 
@@ -70,6 +76,11 @@ function _saveLocalUser(user) {
    sessionStorage.setItem('loggedinUser', JSON.stringify(user))
    return user
 }
+
+(async () => {
+   var user = getLoggedinUser()
+   if (user) socketService.emit('set-user-socket', user._id)
+})();
 
 // _craeteTestData()
 
