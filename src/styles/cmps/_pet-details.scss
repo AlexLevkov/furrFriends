@@ -192,9 +192,13 @@
 
 .pet-visit-share-container {
    display: flex;
-   justify-content: space-between;
-   .pet-visit-owner-btn {
+   justify-content: center;
+   gap: 4%;
+   button {
+      width: 33%;
       font-size: 20px;
+   }
+   .pet-visit-owner-btn {
       background-color: $clr2;
       &:hover {
          background-color: lighten($clr2, 10%);
@@ -204,7 +208,6 @@
 
    .pet-share-facebook {
       background-color: #4267b2;
-      font-size: 20px;
       &:hover {
          background-color: lighten(#4267b2, 5%);
          transition: 0.4s;
@@ -231,5 +234,15 @@
    .pet-details-pic-grid {
       grid-template-rows: repeat(5, 60px);
       grid-gap: 5px;
+   }
+
+   .pet-visit-share-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      button {
+         width: 70%;
+      }
+      margin-bottom: 20px;
    }
 }
