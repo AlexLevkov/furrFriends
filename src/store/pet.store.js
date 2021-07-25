@@ -59,6 +59,7 @@ export const petStore = {
          try {
             const savedPet = await petService.save(payload.petToAdd)
             commit({ type: 'savePet', petToSave: savedPet })
+            return savedPet
          } catch (err) {
             console.log('Cannot save pet', err)
             throw err

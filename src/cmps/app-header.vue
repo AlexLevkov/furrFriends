@@ -31,11 +31,19 @@
 </template>
 
 <script>
+import {socketService} from '../service/socket.service.js'
 export default {
   name: "app-header",
   components: {},
   props: {},
-  created() {},
+  created() {
+    socketService.on('user msg', (msg) =>{
+      this.$message({
+              message: msg,
+              type: "success",
+            });
+    })
+  },
   data() {
     return {
       isNavOpen: false,
