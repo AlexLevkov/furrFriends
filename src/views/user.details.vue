@@ -37,7 +37,6 @@
           <hr />
         </li>
         <li v-for="order in loggedinUserOrders" :key="order._id">
-          <!-- {{ order }} -->
           {{ new Date(order.created).toLocaleString() }}
           <p>Owner's Name: {{ order.orderOwner.fullname }}</p>
           <p>Pet's Name: {{ order.orderFor.name }}</p>
@@ -87,9 +86,6 @@
           </el-button>
         </li>
       </ul>
-
-      <!-- <button @click="toggleReview">Add Review</button> -->
-      <!-- <button @click="toggleForm">Add Pet</button> -->
 
       <form v-if="isReviewOpen" @submit.prevent="addReview">
         <el-input
@@ -216,7 +212,7 @@
         <hr />
       </article>
       <pet-list @edit="editPet" :isUserPre="isLoggedinUser" :pets="usersPets" />
-    </div>    
+    </div>
   </section>
 </template>
 
@@ -239,10 +235,7 @@ export default {
     this.petToAdd = petService.getEmptyPet();
     this.$store.dispatch({ type: "loadOrders" });
 
-    socketService.on("newOrder", (order) => {
-      this.getOrders();
-      console.log("order:", order);
-    });
+    socketService.on("newOrder", this.getOrders);
   },
   data() {
     return {
@@ -271,9 +264,10 @@ export default {
       );
     },
     loggedinUserPending() {
-      return this.$store.getters.orders.filter(
-        (order) => order.orderOwner._id === this.user._id
-      );
+      return this.$store.getters.orders.filter((order) => {
+        console.log("order:", order);
+        order.orderOwner._id === this.user._id;
+      });
     },
 
     // orders() {
@@ -329,13 +323,8 @@ export default {
     approveOrder(order, newOwner) {
       let petToAdd = order.orderFor;
       petToAdd.owner = newOwner;
-      this.$store
-        .dispatch({
-          type: "savePet",
-          petToAdd,
-        })
+      this.$store.dispatch({ type: "savePet", petToAdd })
         .then(() => this.removeOrder(order._id));
-      //
     },
     goToPet(petId) {
       this.$router.push({
