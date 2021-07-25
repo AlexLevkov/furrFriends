@@ -1,17 +1,17 @@
 // user-details
 
-.user-info-container{
+.user-info-container {
    display: flex;
    gap: 5%;
    margin-bottom: 10px;
 }
 
-.user-avatar{
-    height: 100%;
-    width: 400px;
+.user-avatar {
+   height: 100%;
+   width: 400px;
 }
 
-.add-pet-form{
+.add-pet-form {
    background-color: #f5f5f5;
    width: 30%;
    display: flex;
@@ -26,7 +26,7 @@
    top: 50%;
    transform: translate(-50%, -50%);
    align-items: stretch;
-  
+
    // margin-top: 5px;
    // display: flex;
    //  flex-direction: column;
@@ -34,32 +34,32 @@
    //  gap:5px
 }
 
-.pet-form-container{
-    height: 100vh;
-    background-color:rgba(0, 0, 0, 0.6);
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    z-index: 1;
-    top:0;
-    right:0;
-    align-items: flex-start;
+.pet-form-container {
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.6);
+   position: fixed;
+   text-align: center;
+   width: 100%;
+   z-index: 1;
+   top: 0;
+   right: 0;
+   align-items: flex-start;
 }
 
-.modal-close{
+.modal-close {
    display: none;
 }
 
-.close-modal-btn{
+.close-modal-btn {
    position: absolute;
-   right:1%;
-   top:1%;
+   right: 1%;
+   top: 1%;
    // padding: 10px;
    border-radius: 50%;
    padding: 5px;
 }
 
-.pet-label{
+.pet-label {
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -67,25 +67,59 @@
    // width:100%
 }
 
-.pet-name{
+.pet-name {
    width: 217px;
 }
 
-.pet-box{
+.pet-box {
    align-self: baseline;
    margin: 0 20px 10px;
 }
 
-.save-btn{
-   width:30%;
+.save-btn {
+   width: 30%;
    align-self: center;
 }
 
-@media screen and (max-width: 600px){
-   .user-info-container{
+.pet-order-p {
+   margin: 0;
+}
+
+.bold {
+   font-weight: bold;
+}
+
+.request-action-container {
+   display: flex;
+
+   gap: 5px;
+   margin: 5px;
+}
+
+.add-pet {
+   margin: 5px;
+}
+
+.action-btn {
+   background-color: $clr2;
+   // background-color: $clr3;
+   // background-color: $clr4;
+   // background-color: $clr5;
+}
+
+@media screen and (max-width: 600px) {
+   .user-info-container {
       flex-direction: column;
    }
-   .user-avatar{
-      width: 100%;      
-  }
+   .user-avatar {
+      width: 100%;
+   }
+   .add-pet-form {
+      width: 90vw;
+      height: 90vh;
+   }
+
+   .request-action-container {
+      flex-direction: column;
+   }
 }
