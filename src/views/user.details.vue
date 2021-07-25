@@ -357,7 +357,10 @@ export default {
     this.petToAdd = petService.getEmptyPet();
     this.$store.dispatch({ type: "loadOrders" });
 
-    socketService.on("newOrder", this.getOrders);
+    socketService.on("newOrder", (order) => {
+      this.getOrders();
+      console.log("order:", order);
+    });
   },
   data() {
     return {
@@ -386,9 +389,9 @@ export default {
       );
     },
     loggedinUserPending() {
-      return this.$store.getters.orders.filter((order) => {        
-        order.orderOwner._id === this.user._id;
-      });
+      return this.$store.getters.orders.filter(
+        (order) => order.orderOwner._id === this.user._id
+      );
     },
 
 
@@ -440,8 +443,13 @@ export default {
     approveOrder(order, newOwner) {
       let petToAdd = order.orderFor;
       petToAdd.owner = newOwner;
-      this.$store.dispatch({ type: "savePet", petToAdd })
+      this.$store
+        .dispatch({
+          type: "savePet",
+          petToAdd,
+        })
         .then(() => this.removeOrder(order._id));
+      //
     },
     goToPet(petId) {
       this.$router.push({
