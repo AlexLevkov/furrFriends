@@ -115,6 +115,14 @@
 .pet-dog::before {
    font-family: awesome;
    content: "\f6d3";
+} //fish
+.pet-fish::before {
+   font-family: awesome;
+   content: "\f578";
+} //parrot
+.pet-parrot::before {
+   font-family: awesome;
+   content: "\f535";
 }
 
 .flex-right {
@@ -182,19 +190,45 @@
    // @include aspect-ratio(5, 2);
 }
 
-.pet-extra-properties {
-   //
+.pet-visit-share-container {
+   display: flex;
+   justify-content: space-between;
+   .pet-visit-owner-btn {
+      font-size: 20px;
+      background-color: $clr2;
+      &:hover {
+         background-color: lighten($clr2, 10%);
+         transition: 0.4s;
+      }
+   }
+
+   .pet-share-facebook {
+      background-color: #4267b2;
+      font-size: 20px;
+      &:hover {
+         background-color: lighten(#4267b2, 5%);
+         transition: 0.4s;
+      }
+   }
+   .pet-share-facebook::before {
+      // align-self: flex-start;
+      // background-color: blue;
+      font-family: brand;
+      content: "\f09a";
+      margin-right: 5px;
+      background-color: #4267b2;
+      &:hover {
+         background-color: lighten(#4267b2, 5%);
+         transition: 0.4s;
+      }
+   }
 }
 
-.pet-visit-owner-btn {
-   align-self: flex-start;
-}
-
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
    .pet-details-container {
       flex-direction: column;
    }
-   .pet-details-pic-grid{
+   .pet-details-pic-grid {
       grid-template-rows: repeat(5, 60px);
       grid-gap: 5px;
    }

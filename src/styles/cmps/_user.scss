@@ -1,74 +1,82 @@
-.close-modal-btn{
+.close-modal-btn {
    margin-left: 90%;
 }
 
-
-.user-modal{
-    height: 100vh;
-    background-color:rgba(0, 0, 0, 0.6);
-    position: fixed;
-
+.user-modal {
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.6);
+   position: fixed;
 }
 
-
-.user-main{
-    text-align: center;
-    width: 100%;
-    z-index: 1;
+.user-main {
+   text-align: center;
+   width: 100%;
+   z-index: 1;
 }
 
-    .user-form-container {
-        background-color: #f5f5f5;
-        width: 30%;
-        height: 65%;
-        flex-direction: column;
+.user-form-container {
+   background-color: #f5f5f5;
+   width: 20vw;
+   height: 60vh;
+   flex-direction: column;
 
-        border-radius: 8px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-
-.signup-form, .login-form{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin: 0 auto;
-    input{
-        display: block;
-        margin-bottom: 5px;
-    }
-    select{
-        margin-bottom: 5px;
-    }
+   border-radius: 8px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
 }
 
-.modal-logout{
-//     margin: 0 auto;
-//     position: absolute;
-//     bottom: 10%;
-//     left: 40%;
+.signup-form,
+.login-form {
+   display: flex;
+   flex-direction: column;
+   width: 70%;
+   margin: 0 auto;
+   input {
+      display: block;
+      margin-bottom: 5px;
+   }
+   select {
+      margin-bottom: 5px;
+   }
 }
 
-.modal-manage{
+.modal-logout {
+   //     margin: 0 auto;
+   //     position: absolute;
+   //     bottom: 10%;
+   //     left: 40%;
+}
+
+.modal-manage {
    // margin: 0 auto;
    // position: absolute;
    // bottom: 30%;
    // left: 40%;
 }
 
-.loggedin-modal-btns{
+.loggedin-modal-btns {
    display: flex;
    flex-direction: column;
    width: 70%;
    margin: 15% auto;
    gap: 15px;
-
 }
 
-.loggedin-modal{
+// special class for the logout/manage your acount modal
+.loggedin-modal {
    height: 35%;
    // width: 25%;
+}
+
+@media screen and (max-width: 600px) {
+   .user-form-container {
+      width: 60vw;
+      height: 60vh;
+   }
+
+   .loggedin-modal {
+      height: 35vh;
+   }
 }
