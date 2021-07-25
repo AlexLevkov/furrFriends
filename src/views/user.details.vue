@@ -358,7 +358,9 @@ export default {
     this.$store.dispatch({ type: "loadOrders" });
 
     socketService.on("newOrder", (order) => {
-      this.getOrders();      
+      this.getOrders()
+      this.loadPets()
+            
     });
   },
   data() {
@@ -476,6 +478,9 @@ export default {
     getOrders() {
       this.$store.dispatch({ type: "loadOrders" });
     },
+    loadPets(){
+      this.$store.dispatch({ type: "loadPets" });
+    }
   },
 
   watch: {

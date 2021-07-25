@@ -79,6 +79,7 @@ function _saveLocalUser(user) {
 
 (async () => {
    var user = getLoggedinUser()
+   console.log('user:', user)
    if (user) socketService.emit('set-user-socket', user._id)
 })();
 
