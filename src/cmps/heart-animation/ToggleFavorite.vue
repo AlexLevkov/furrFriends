@@ -130,6 +130,7 @@ $icon-border-color: hsl(0, 0%, 10%);
 		fill: $icon-color;
 		fill-opacity: 0;
 		stroke: $icon-border-color;
+        stroke-opacity: 0.8;
 
 		&--favorited {
 			fill-opacity: 1;

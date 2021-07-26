@@ -1,248 +1,254 @@
 // pet info - bio and properties
 
 .pet-bio-contianer {
-   flex-basis: 35%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pet-details-container {
-   display: flex;
-   gap: 20px;
-   flex-direction: row;
-   height: fit-content;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    height: fit-content;
 }
 
 .pet-bio {
-   margin-top: 20px;
-   text-align: justify;
-   text-justify: inter-word;
-   p {
-      max-width: 100%;
-   }
+    margin-top: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+    p {
+        max-width: 100%;
+    }
 }
 
 //adoption button
 
 .pet-details-container {
-   .adopt-btn::before {
-      font-family: awesome;
-      content: "\f1b0";
-   }
+    .adopt-btn::before {
+        font-family: awesome;
+        content: "\f1b0";
+    }
 }
 
 .adopt-btn {
-   align-self: center;
-   width: 70%;
-   margin: 20px 0;
-   height: 8%;
-   border-radius: 40px;
-   font-size: 20px;
+    align-self: center;
+    width: 70%;
+    margin: 20px 0;
+    height: 8%;
+    border-radius: 40px;
+    font-size: 20px;
 }
 
 // pet properties
 
 .pet-tag {
-   font-size: 20px;
+    font-size: 20px;
+    text-transform: capitalize;
+    padding-right: 5px;
 }
 
 .pet-details-likes {
-   margin-bottom: 10px;
-   font-size: 1.2em;
-   font-weight: bold;
-   span {
-      color: $clr3;
-      font-size: 2em;
-   }
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    span {
+        color: $clr3;
+        font-size: 2em;
+    }
 }
 
 .pet-properties {
-   display: flex;
-   padding: 5px;
-   border-radius: 5px;
-   flex-direction: row-reverse;
-   flex-wrap: wrap;
-   background-color: darken($clr1, 5%);
-   // background-color: lighten($clr3, 30%);
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    background-color: darken($clr1, 5%);
+    // background-color: lighten($clr3, 30%);
 }
 
 //safe with childeren:
 .pet-safe::before {
-   font-family: awesome;
-   content: "\f77c";
+    font-family: awesome;
+    content: "\f77c";
 } //playfull:
 .pet-playfull::before {
-   font-family: awesome;
-   content: "\f434";
+    font-family: awesome;
+    content: "\f434";
 } //vaccinated
 .pet-vacinated::before {
-   font-family: awesome;
-   content: "\f48e";
+    font-family: awesome;
+    content: "\f48e";
 } //age
 .pet-age::before {
-   font-family: awesome;
-   content: "\f004";
+    font-family: awesome;
+    content: "\f004";
 } //gender - male
 .pet-gender-male::before {
-   font-family: awesome;
-   content: "\f222";
+    font-family: awesome;
+    content: "\f222";
+    padding-left: 3px;
+    padding-right: 5px;
 } //gender - female
 .pet-gender-female::before {
-   font-family: awesome;
-   content: "\f221";
+    font-family: awesome;
+    content: "\f221";
+    padding-left: 3px;
+    padding-right: 5px;
 } //tarining
 .pet-trained::before {
-   font-family: awesome;
-   content: "\f0f3";
+    font-family: awesome;
+    content: "\f0f3";
 } //birth-certificate
 .pet-birth-certificate::before {
-   font-family: awesome;
-   content: "\f03a";
+    font-family: awesome;
+    content: "\f03a";
 } //castrated
 .pet-castrated::before {
-   font-family: awesome;
-   content: "\f02b";
+    font-family: awesome;
+    content: "\f02b";
 } //weight
 .pet-weight::before {
-   font-family: awesome;
-   content: "\f496";
+    font-family: awesome;
+    content: "\f496";
 } //cat
 .pet-cat::before {
-   font-family: awesome;
-   content: "\f6be";
+    font-family: awesome;
+    content: "\f6be";
 } //dog
 .pet-dog::before {
-   font-family: awesome;
-   content: "\f6d3";
+    font-family: awesome;
+    content: "\f6d3";
 } //fish
 .pet-fish::before {
-   font-family: awesome;
-   content: "\f578";
+    font-family: awesome;
+    content: "\f578";
 } //parrot
 .pet-parrot::before {
-   font-family: awesome;
-   content: "\f535";
+    font-family: awesome;
+    content: "\f535";
 }
 
 .flex-right {
-   display: flex;
-   flex-direction: column;
-   flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
 }
 
 .flex-left {
-   display: flex;
-   flex-direction: column;
-   flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
 }
 
 // pet gallery
 
 .pet-details-pic-grid {
-   flex-basis: 65%;
-   margin-top: 20px;
-   width: 100%;
-   // height: 500px;
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   grid-template-rows: repeat(5, 120px);
-   grid-template-areas:
-      "img-1 img-1 img-2 img-2 img-2"
-      "img-1 img-1 img-2 img-2 img-2"
-      "img-1 img-1 img-2 img-2 img-2"
-      "img-3 img-3 img-2 img-2 img-2"
-      "img-3 img-3 img-2 img-2 img-2";
-   grid-gap: 20px;
+    flex-basis: 65%;
+    margin-top: 20px;
+    width: 100%;
+    // height: 500px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 120px);
+    grid-template-areas:
+        "img-1 img-1 img-2 img-2 img-2"
+        "img-1 img-1 img-2 img-2 img-2"
+        "img-1 img-1 img-2 img-2 img-2"
+        "img-3 img-3 img-2 img-2 img-2"
+        "img-3 img-3 img-2 img-2 img-2";
+    grid-gap: 20px;
 }
 
 .article-img-1 {
-   grid-area: img-1;
+    grid-area: img-1;
 }
 
 .article-img-2 {
-   grid-area: img-2;
+    grid-area: img-2;
 }
 
 .article-img-3 {
-   grid-area: img-3;
+    grid-area: img-3;
 }
 
 .img-details {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   object-position: center top;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .img-1 {
-   border-radius: 25px 0 0 0;
-   // @include aspect-ratio(2, 3);
+    border-radius: 25px 0 0 0;
+    // @include aspect-ratio(2, 3);
 }
 
 .img-2 {
-   border-radius: 0 25px 25px 0;
-   // @include aspect-ratio(1, 1);
+    border-radius: 0 25px 25px 0;
+    // @include aspect-ratio(1, 1);
 }
 
 .img-3 {
-   border-radius: 0 0 0 25px;
-   // @include aspect-ratio(5, 2);
+    border-radius: 0 0 0 25px;
+    // @include aspect-ratio(5, 2);
 }
 
 .pet-visit-share-container {
-   display: flex;
-   justify-content: center;
-   gap: 4%;
-   button {
-      width: 33%;
-      font-size: 20px;
-   }
-   .pet-visit-owner-btn {
-      background-color: $clr2;
-      &:hover {
-         background-color: lighten($clr2, 10%);
-         transition: 0.4s;
-      }
-   }
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    button {
+        width: 33%;
+        font-size: 20px;
+    }
+    .pet-visit-owner-btn {
+        background-color: $clr2;
+        &:hover {
+            background-color: lighten($clr2, 10%);
+            transition: 0.4s;
+        }
+    }
 
-   .pet-share-facebook {
-      background-color: #4267b2;
-      &:hover {
-         background-color: lighten(#4267b2, 5%);
-         transition: 0.4s;
-      }
-   }
-   .pet-share-facebook::before {
-      // align-self: flex-start;
-      // background-color: blue;
-      font-family: brand;
-      content: "\f09a";
-      margin-right: 5px;
-      background-color: #4267b2;
-      &:hover {
-         background-color: lighten(#4267b2, 5%);
-         transition: 0.4s;
-      }
-   }
+    .pet-share-facebook {
+        background-color: #4267b2;
+        &:hover {
+            background-color: lighten(#4267b2, 5%);
+            transition: 0.4s;
+        }
+    }
+    .pet-share-facebook::before {
+        // align-self: flex-start;
+        // background-color: blue;
+        font-family: brand;
+        content: "\f09a";
+        margin-right: 5px;
+        background-color: #4267b2;
+        &:hover {
+            background-color: lighten(#4267b2, 5%);
+            transition: 0.4s;
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
-   .pet-details-container {
-      flex-direction: column;
-   }
-   .pet-details-pic-grid {
-      grid-template-rows: repeat(5, 60px);
-      grid-gap: 5px;
-   }
+    .pet-details-container {
+        flex-direction: column;
+    }
+    .pet-details-pic-grid {
+        grid-template-rows: repeat(5, 60px);
+        grid-gap: 5px;
+    }
 
-   .pet-visit-share-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      button {
-         width: 70%;
-      }
-      margin-bottom: 20px;
-   }
+    .pet-visit-share-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        button {
+            width: 70%;
+        }
+        margin-bottom: 20px;
+    }
 }

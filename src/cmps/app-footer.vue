@@ -1,6 +1,6 @@
 <template>
   <section class="main-layout full app-footer">
-    <footer> Coffee's Rights - Alex & Alex</footer>
+    <footer>Copyrights - FurrFriends 2021</footer>
   </section>
 </template>
 

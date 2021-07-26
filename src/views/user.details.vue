@@ -2,8 +2,9 @@
 	<section class="user-details main-layout min-height" v-if="user">
 		<div>
 			<h2>Hello {{ user.fullname }}</h2>
+			<!-- {{ isAdopted }} -->
 			<div class="user-info-container">
-				<div class="user img">
+				<div class="user-img">
 					<img
 						class="user-avatar"
 						:src="
@@ -27,14 +28,14 @@
 				v-if="loggedinUser._id !== user._id"
 				>Add Review</el-button
 			>
-			<el-button
+			<!-- <el-button
 				class="add-pet"
 				@click="toggleForm"
 				type="success"
 				round
 				v-if="loggedinUser._id === user._id"
 				>Add Pet for Adoption</el-button
-			>
+			> -->
 			<ul
 				v-if="
 					loggedinUserOrders.length &&
@@ -46,52 +47,80 @@
 					<hr />
 				</li>
 				<li v-for="order in loggedinUserOrders" :key="order._id">
-					<!-- {{ order }} -->
 					<p>{{ new Date(order.created).toLocaleString() }}</p>
+					<div class="order-container">
+						<div class="img-request-container">
+							<img
+								class="img-request"
+								:src="
+									require('@/assets/images/animal/' +
+										order.orderFor.imgUrl[0])
+								"
+							/>
+						</div>
 
-					<p class="pet-order-p">
-						Your addoption request for
-						<span class="bold">{{
-							order.orderFor.name
-						}}</span>
-						has been delivered.
-					</p>
-					<p class="pet-order-p">
-						<span class="bold">{{
-							order.orderOwner.fullname
-						}}</span>
-						will update you soon.
-					</p>
-					<p class="pet-order-p">
-						In the meanwhile you can choose one of the
-						following actions:
-					</p>
+						<div v-if="!isAdopted" class="order-details">
+							<p class="pet-order-p">
+								Dear {{ order.orderBy.fullname }},
+							</p>
+							<p class="pet-order-p">
+								Your addoption request for
+								<span class="bold">{{
+									order.orderFor.name
+								}}</span>
+								has been delivered.
+							</p>
+							<p class="pet-order-p">
+								<span class="bold">{{
+									order.orderOwner.fullname
+								}}</span
+								>, the owner, will update you soon.
+							</p>
+							<p class="pet-order-p">
+								In the meanwhile you can choose one of
+								the following actions:
+							</p>
+						</div>
 
-					<div class="request-action-container">
-						<el-button
-							class="action-btn"
-							@click="removeOrder(order._id)"
-							type="success"
-							round
-						>
-							Delete Request</el-button
-						>
+						<div v-else>
+							Congratulations {{ order.orderBy.fullname }}!
+							Your adoption request for
+							{{ order.orderFor.name }} has been approved.
+							Please contact
+							{{ order.orderOwner.fullname }} to complete
+							the adoption process.
+							<p class="pet-order-p">phone:0782634186</p>
+							<p class="pet-order-p">mail:ARC@gmail.com</p>
+							<p class="pet-order-p">good luck!😀</p>
+						</div>
 
-						<el-button
-							class="action-btn"
-							@click="goToPet(order.orderFor._id)"
-							type="success"
-							round
-							>Visit {{ order.orderFor.name }}'s' Page
-						</el-button>
-						<el-button
-							class="action-btn"
-							@click="goToUser(order.orderOwner._id)"
-							type="success"
-							round
-						>
-							Visit {{ order.orderOwner.fullname }}'s Page
-						</el-button>
+						<div class="request-action-container">
+							<el-button
+								class="action-btn"
+								@click="removeOrder(order._id)"
+								type="success"
+								round
+							>
+								Delete Request</el-button
+							>
+
+							<el-button
+								class="action-btn"
+								@click="goToPet(order.orderFor._id)"
+								type="success"
+								round
+								>Visit {{ order.orderFor.name }}'s' Page
+							</el-button>
+							<el-button
+								class="action-btn"
+								@click="goToUser(order.orderOwner._id)"
+								type="success"
+								round
+							>
+								Visit {{ order.orderOwner.fullname }}'s
+								Page
+							</el-button>
+						</div>
 					</div>
 
 					<hr />
@@ -103,56 +132,92 @@
 					loggedinUser._id === user._id
 				"
 			>
-				<li><h2>Adoption Offers</h2></li>
+				<li><h2>Incoming Adoption Requests</h2></li>
 				<li v-for="order in loggedinUserPending" :key="order._id">
 					<hr />
 					<p>{{ new Date(order.created).toLocaleString() }}</p>
+					<div class="order-container">
+						<div class="img-request-container">
+							<img
+								class="img-request"
+								:src="
+									require('@/assets/images/animal/' +
+										order.orderFor.imgUrl[0])
+								"
+							/>
+						</div>
+						<div v-if="!isAdopted" class="order-details">
+							<p class="pet-order-p">
+								Dear {{ order.orderOwner.fullname }},
+							</p>
+							<p class="pet-order-p">
+								We are happy to inform you about a new
+								adoption request for
+								<span class="bold"
+									>{{ order.orderFor.name }}.</span
+								>
+							</p>
 
-					<p class="pet-order-p">
-						<span class="bold">{{
-							order.orderBy.fullname
-						}}</span>
-						would like to adopt
-						<span class="bold"
-							>{{ order.orderFor.name }}.</span
-						>
-					</p>
-					<p class="pet-order-p">
-						Please select one of the following actions:
-					</p>
+							<p class="pet-order-p">
+								The request was sent by
+								<span class="bold">{{
+									order.orderBy.fullname
+								}}</span>
+							</p>
+							<p class="pet-order-p">
+								Please select one of the following
+								actions:
+							</p>
+						</div>
 
-					<div class="request-action-container">
-						<el-button
-							@click="approveOrder(order, order.orderBy)"
-							type="success"
-							round
-						>
-							Approve Rquest
-						</el-button>
-						<el-button
-							class="action-btn"
-							@click="removeOrder(order._id)"
-							type="success"
-							round
-						>
-							Delete Rquest
-						</el-button>
-						<el-button
-							class="action-btn"
-							@click="goToPet(order.orderFor._id)"
-							type="success"
-							round
-						>
-							Visit {{ order.orderFor.name }}'s Page
-						</el-button>
-						<el-button
-							class="action-btn"
-							@click="goToUser(order.orderBy._id)"
-							type="success"
-							round
-						>
-							Visit {{ order.orderBy.fullname }}'s Page
-						</el-button>
+						<div v-else>
+							<p class="pet-order-p">
+								Dear {{ order.orderOwner.fullname }},
+							</p>
+							Your approval for the adoption of
+							{{ order.orderFor.name }} has been
+							successfully submitted.Please wait for a
+							call/email from
+							{{ order.orderBy.fullname }} to contact you.
+						</div>
+
+						<div class="request-action-container">
+							<el-button
+								v-if="!isAdopted"
+								@click="
+									approveOrder(order, order.orderBy)
+								"
+								type="success"
+								round
+							>
+								Approve Rquest
+							</el-button>
+							<el-button
+								class="action-btn"
+								@click="removeOrder(order._id)"
+								type="success"
+								round
+							>
+								Delete Rquest
+							</el-button>
+							<el-button
+								class="action-btn"
+								@click="goToPet(order.orderFor._id)"
+								type="success"
+								round
+							>
+								Visit {{ order.orderFor.name }}'s Page
+							</el-button>
+							<el-button
+								class="action-btn"
+								@click="goToUser(order.orderBy._id)"
+								type="success"
+								round
+							>
+								Visit {{ order.orderBy.fullname }}'s
+								Page
+							</el-button>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -166,8 +231,8 @@
 				>
 				</el-input>
 
-				<el-button @click="addReview" type="success" round
-					>Post</el-button
+				<!-- <el-button @click="addReview" type="success" round
+					>Post</el-button -->
 				>
 			</form>
 
@@ -317,8 +382,8 @@
 			</div>
 
 			<h2>
-				Reviews
-				<hr />
+				<!-- Reviews -->
+				<!-- <hr /> -->
 			</h2>
 			<article
 				class="user-reviews"
@@ -329,11 +394,11 @@
 				<p>{{ review.text }}</p>
 				<hr />
 			</article>
-			<pet-list
+			<!-- <pet-list
 				@edit="editPet"
 				:isUserPre="isLoggedinUser"
 				:pets="usersPets"
-			/>
+			/> -->
 		</div>
 	</section>
 </template>
@@ -358,13 +423,18 @@ export default {
     this.$store.dispatch({ type: "loadOrders" });
 
     socketService.on("newOrder", (order) => {
-      this.getOrders()
-      this.loadPets()
-            
+      console.log("new order");
+      this.getOrders();
+      this.loadPets();
+    });
+    socketService.on("special", () => {
+      console.log("order approved");
+      this.isAdopted = true;
     });
   },
   data() {
     return {
+      isAdopted: false,
       user: null,
       isFormOpen: false,
       petToAdd: null,
@@ -394,13 +464,11 @@ export default {
         (order) => order.orderOwner._id === this.user._id
       );
     },
-
-
   },
 
   methods: {
     toggleForm() {
-      console.log('I am alive!');
+      console.log("I am alive!");
       this.isFormOpen = !this.isFormOpen;
     },
     toggleReview() {
@@ -442,6 +510,8 @@ export default {
       this.$store.dispatch({ type: "removeOrder", orderId });
     },
     approveOrder(order, newOwner) {
+      console.log("approve");
+      this.isAdopted = true;
       let petToAdd = order.orderFor;
       petToAdd.owner = newOwner;
       this.$store
@@ -450,11 +520,9 @@ export default {
           petToAdd,
         })
         .then((pet) => {
-          this.removeOrder(order._id)
-          socketService.emit('order approved', pet)
-          
-          });
-      //
+          // this.removeOrder(order._id);
+          socketService.emit("order approved", pet);
+        });
     },
     goToPet(petId) {
       this.$router.push({
@@ -478,9 +546,9 @@ export default {
     getOrders() {
       this.$store.dispatch({ type: "loadOrders" });
     },
-    loadPets(){
+    loadPets() {
       this.$store.dispatch({ type: "loadPets" });
-    }
+    },
   },
 
   watch: {
@@ -489,6 +557,7 @@ export default {
       handler() {
         const { userId } = this.$route.params;
         userService.getById(userId).then((user) => (this.user = user));
+        this.isAdopted = false;
       },
     },
   },
